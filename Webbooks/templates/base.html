@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Заголовок{% endblock title %}</title>
+    <link rel="stylesheet" href={% static "css/style3.css" %}>
+</head>
+<body>
+<div class="head">
+    <div class="logo">
+    <a href=""><img src={% static "image/logo.jpeg" %}></a>
+    </div>
+    <div class="list">
+        <span><a>Продукция и услуги</a></span>
+        <span><a>Фото и видео</a></span>
+        <span><a>Вопрос-Ответ</a></span>
+        <span><a>Форум</a></span>
+        <span><a>Контакты</a></span>
+        <!-- <span>Покупателям</span> -->
+    </div>
+    <div class="search">
+        <form method="POST" novalidate>
+        {% csrf_token %}
+            <div class="field">{{ form_search }}</div>
+            <input type="submit" value="Поиск">
+        </form>
+    </div>
+</div>
+{% block body %}Содержание станицы{% endblock body %}
+</body>
+<footer>
+    <div class="column c2">
+        <div class="map">
+            <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Aa0fd7af29c02320f31e87a1f162d103dc0999eb16475eb4b0557a1bad5b186b7&amp;width=400&amp;height=300&amp;lang=ru_RU&amp;scroll=true"></script>
+        </div>
+        <div class="contact">
+            <h4>Контакты</h4>
+            <div class="con_info">
+                <p class="home">Адрес: ????????????</p>
+                <p class="email">qwertyuiop@asdf.net</p>
+                <p class="phone">т. 1234567890</p>
+                <a href="https://www.whatsapp.com/"><img src={% static "image/wapp.png" %}></a>
+                <a href="https://telegram.org/"><img src="/static/image/tel.png"></a>
+            </div>
+        </div>
+    </div>
+        <div class="copyright">
+            © Copyright 2021 - 2021 | Байкальская аукционная компания "Байкал-Фурс".
+            <br>
+            Все права защищены | чем занимается компания
+            <br>
+            152-ФЗ: Политика обработки персональных данных. Соглашение об использовании сайта. Согласие на обработку персональных данных.
+        </div>
+</footer>
+</html>

@@ -1,0 +1,185 @@
+@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  src: url(https://fonts.gstatic.com/s/materialicons/v47/flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2) format('woff2');
+}
+.head {
+    width: 100%;
+    padding: 10px 5px 10px 5px;
+    background: linear-gradient(to right, #05aa15, rgba(30, 189, 13, 0.77));
+}
+
+.head > div {
+    display: inline-block;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Tahoma;
+}
+
+.list {
+    margin: 0px 20px 10px 10%;
+}
+
+.search .field {
+    float: left;
+    margin: 10px 20px;
+}
+.search input[type="text"] {
+    padding: 5px;
+    font-size: 16px;
+    border-radius: 6px;
+}
+
+input[type="submit"] {
+    margin-top: 14px;
+    color: white;
+    background-color: darkgreen;
+    padding: 3px 10px;
+    border: 1px solid yellow;
+    border-radius: 3px;
+    content: "Поиск";
+}
+
+.search label {
+    display: none;
+}
+
+.list span {
+    margin-inline: 20px;
+    font-size: 20px;
+    font-family: Tahoma;
+}
+
+footer {
+    padding-bottom: 20px;
+    min-height: 400px;
+    margin-top: auto;
+    background-color: #005300;
+    color: #b1b1b1;
+}
+
+footer .copyright {
+    padding-top: 15px;
+    text-align: center;
+}
+
+.column.c2 > div {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    display: inline-block;
+    float: left;
+    max-width: 50%;
+    min-height: 310px;
+}
+.column + div{
+    clear: left;
+}
+.map {
+    background-color: darkgreen;
+    padding-inline: 10%;
+    width: 30%;
+}
+
+.column.c2 {
+    font-family: Tahoma;
+    margin-bottom: 20px;
+}
+
+.contact {
+    position: absolute;
+    background-color: darkolivegreen;
+    padding-left: 7%;
+    width: 43%;
+}
+
+.logo img {
+    padding-left: 50px;
+    margin-right: 50px;
+    width: 40px;
+
+}
+
+.menu > div {
+    display: table-cell;
+}
+
+.menu {
+    margin-left: 10%;
+}
+.logo{
+    float: left;
+}
+section{
+    max-width: 100%;
+    min-height: 500px;
+    padding: 20px 5%;
+}
+.products,
+.video-arhiv{
+    background-color: #b6fab6;
+}
+.poster{
+    object-fit: cover;
+    width: 100%;
+    max-height: 500px;
+}
+.welcome h1{
+    text-align: center;
+    font-size: 40px;
+    font-family: Tahoma;
+}
+.con_info .home:before{
+    content: "business";
+    font-size: 20px;
+    font-family: "Material Icons";
+    margin-right: 10px;
+    float: left;
+}
+.con_info .email:before{
+    content: "email";
+    font-size: 20px;
+    font-family: "Material Icons";
+    margin-right: 10px;
+    float: left;
+}
+.con_info .phone:before{
+    content: "call";
+    font-size: 20px;
+    font-family: "Material Icons";
+    margin-right: 10px;
+    float: left;
+}
+.con_info img{
+    max-width: 25px;
+    margin-right: 10px;
+}
+.form_back_speak .form td,
+.form_back_speak .form th{
+    padding-bottom: 20px;
+}
+.form_back_speak .form td {
+    padding-left: 20px;
+}
+.form_back_speak .form th {
+    padding-top: 5px;
+    vertical-align: top;
+}
+.form_back_speak .form input,
+.form_back_speak .form select,
+.form_back_speak .form option,
+.form_back_speak .form textarea{
+    width: 120%;
+    font-size: 16px;
+    padding: 6px;
+}
+.form_back_speak .form select,
+.form_back_speak .form option{
+    width: 124%;
+}
+.form_back_speak .form input[type="submit"]{
+    width: auto;
+}
+
