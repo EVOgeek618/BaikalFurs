@@ -71,7 +71,10 @@ footer .copyright {
     padding-top: 15px;
     text-align: center;
 }
-
+.column.c2 {
+    font-family: Tahoma;
+    margin-bottom: 20px;
+}
 .column.c2 > div {
     padding-top: 20px;
     padding-bottom: 20px;
@@ -89,9 +92,49 @@ footer .copyright {
     width: 30%;
 }
 
-.column.c2 {
+.column.c3 {
     font-family: Tahoma;
     margin-bottom: 20px;
+}
+
+.photo-preview{
+    background-color: white;
+    border: 3px solid black;
+    border-radius: 10px;
+}
+
+.column.c3 > div {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-inline: 1%;
+    display: inline-block;
+    float: left;
+    max-width: 30%;
+}
+
+.photo-preview .info .name{
+    margin-left: 10px;
+    font-size: 20px;
+}
+
+.photo-preview .info .date{
+    margin-block: 0px;
+    margin-right: 5px;
+    float: right;
+    font-size: 12px;
+    color: #6f6f6f;
+}
+
+.column.c3 .photo-preview{
+    padding-top: 1%;
+}
+
+.column.c3 .photo {
+    text-align: center;
+}
+
+.column.c3 img {
+    max-width: 95%;
 }
 
 .contact {
@@ -132,7 +175,7 @@ section{
     width: 100%;
     max-height: 500px;
 }
-.welcome h1{
+h1{
     text-align: center;
     font-size: 40px;
     font-family: Tahoma;
