@@ -19,7 +19,7 @@ body {
     font-family: Tahoma;
 }
 
-.list {
+.main_list {
     margin: 0px 20px 10px 10%;
 }
 
@@ -47,10 +47,16 @@ input[type="submit"] {
     display: none;
 }
 
-.list span {
+.main_list span {
     margin-inline: 20px;
     font-size: 20px;
     font-family: Tahoma;
+}
+
+.main_list a:link,
+.main_list a:visited{
+    color: black;
+    text-decoration: none;
 }
 
 footer {

@@ -4,19 +4,19 @@
 <head>
     <meta charset="UTF-8">
     <title>{% block title %}Заголовок{% endblock title %}</title>
-    <link rel="stylesheet" href={% static "css/style3.css" %}>
+    <link rel="stylesheet" href={% static "css/style.css" %}>
 </head>
 <body>
 <div class="head">
     <div class="logo">
-    <a href=""><img src={% static "image/logo.jpeg" %}></a>
+    <a href="/"><img src={% static "image/logo.jpeg" %}></a>
     </div>
-    <div class="list">
-        <span><a>Продукция и услуги</a></span>
-        <span><a>Фото и видео</a></span>
-        <span><a>Вопрос-Ответ</a></span>
-        <span><a>Форум</a></span>
-        <span><a>Контакты</a></span>
+    <div class="main_list">
+        <span><a href="/products">Продукция и услуги</a></span>
+        <span><a href="/photoarchive">Фото и видео</a></span>
+        <span><a href="/faq">Вопрос-Ответ</a></span>
+        <span><a href="/forum">Форум</a></span>
+        <span><a href="/contacts">Контакты</a></span>
         <!-- <span>Покупателям</span> -->
     </div>
     <div class="search">

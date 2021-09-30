@@ -19,5 +19,9 @@ from firsttry import views
 urlpatterns = [
     path('', views.home),
     path('faq/', views.faq),
+    path('contacts/', views.contacts),
+    path('forum/', views.forum),
+    path('photoarchive/', views.photo),
+    path('products/', views.products),
     path('admin/', admin.site.urls),
 ]
