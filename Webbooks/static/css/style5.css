@@ -168,7 +168,7 @@ section{
 }
 .products,
 .video-arhiv{
-    background-color: #b6fab6;
+    background-color: rgba(74, 255, 74, 0.68);
 }
 .poster{
     object-fit: cover;
@@ -231,4 +231,10 @@ h1{
 .form_back_speak .form input[type="submit"]{
     width: auto;
 }
-
+.image-product img{
+    height: 350px;
+}
+.image-product{
+    text-align: center;
+    width: 50%;
+}
