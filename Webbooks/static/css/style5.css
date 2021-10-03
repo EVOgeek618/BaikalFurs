@@ -238,3 +238,41 @@ h1{
     text-align: center;
     width: 50%;
 }
+.main-info .round{
+    margin-left: auto;
+    margin-right: auto;
+    width: 150px;
+    height: 150px;
+    border-radius: 75px;
+    background-color: #3d7826;
+}
+.main-info{
+    width: 30%;
+    text-align: center;
+}
+.main-info p{
+    font-size: 20px;
+}
+.forum-photo{
+    text-align: center;
+}
+.forum-photo img{
+    width: 90%;
+    margin-top: 50px;
+}
+.forums-theme-list{
+    width: 100%;
+    margin-top: 5%;
+}
+.forums-theme-list > a{
+    margin-left: 5%;
+}
+.forum-theme{
+    margin-left: 5%;
+    margin-bottom: 5px;
+    padding-block: 2px;
+    padding-left: 10px;
+    border-radius: 7px;
+    background-color: #76f182;
+    width: 90%;
+}

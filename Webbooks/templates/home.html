@@ -6,6 +6,20 @@
     <h1>ООО БАК "Байкал-Фурс"</h1>
     <p class="info">Уважаемые охотники и охотпользователи.
           Оплата за продукцию осуществляется в удобной для вас форме. Мы авансируем наших постоянных партнёров. Интересующие вас детали можно уточнить задав вопрос во вкладке "Вопрос-Ответ" или по электронной почте, телефону, Вацапу, Телеграм и Вайберу, указанных в разделе "Контакты", здесь же вы можете получить консультацию по широкому кругу вопросов об охоте, правового, технологического и экономического характера. Поскольку в нашей компании работают опытные специалисты охотничьего хозяйства, мы создали страницу "Фото и видео", где размещаем собранные нами материалы о жизни дикой живой природе Сибири и охотничьих путешествиях.</p>
+    <div class="column c3">
+        <div class="main-info">
+            <div class="round"></div>
+            <p>Факт №1</p>
+        </div>
+        <div class="main-info">
+            <div class="round"></div>
+            <p>Факт №2</p>
+        </div>
+        <div class="main-info">
+            <div class="round"></div>
+            <p>Факт №3</p>
+        </div>
+    </div>
 </section>
 <section class="products">
     <h1>Продукция и услуги</h1>
@@ -20,7 +34,29 @@
     </div>
 </section>
 <section class="forums-theme">
-
+    <div class="column c2">
+        <div class="forum-photo">
+            <img src="static/image/olen.jpg">
+        </div>
+        <div class="forums-theme-list">
+            <div class="forum-theme">
+                <p>Тема форума №1</p>
+            </div>
+            <div class="forum-theme">
+                <p>Тема форума №2</p>
+            </div>
+            <div class="forum-theme">
+                <p>Тема форума №3</p>
+            </div>
+            <div class="forum-theme">
+                <p>Тема форума №4</p>
+            </div>
+            <div class="forum-theme">
+                <p>Тема форума №5</p>
+            </div>
+            <a href="/forum">Страница форума</a>
+        </div>
+    </div>
 </section>
 <section class="video-arhiv">
     <h1>Фото и видео</h1>
@@ -56,6 +92,10 @@
 </section>
 <section class="form_back_speak">
     <div class="column c2">
+    <div class="form_info">
+        <h3>Вопросы</h3>
+        <p>Если у вас возникают вопросы по различным темам, то можете отправить свой вопрос нам. Наши операторы ответят вам на почту в ближайшее время.</p>
+    </div>
     <div class="form">
         <form method="POST">
         {% csrf_token %}
@@ -68,9 +108,6 @@
             </table>
 
         </form>
-    </div>
-    <div class="form_info">
-
     </div>
     </div>
 </section>
