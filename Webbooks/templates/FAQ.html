@@ -1,3 +1,22 @@
 {% extends "base.html" %}
 {% block title%}Вопрос-ответ{% endblock title%}
-{% block body %}{% endblock body %}
+{% block body %}
+<div class="form_info">
+        <h2>Вопросы</h2>
+        <p>Если у вас возникают вопросы по различным темам, то можете отправить свой вопрос нам. Наши операторы ответят вам на почту в ближайшее время.</p>
+    </div>
+<section class="form_back_speak">
+<div class="form">
+    <form method="POST">
+    {% csrf_token %}
+        <table>
+        {{ form_q.as_table }}
+        <tr>
+        <th></th>
+        <td><input type="submit"></td>
+        </tr>
+        </table>
+    </form>
+</div>
+</section>
+{% endblock body %}

@@ -279,3 +279,28 @@ h1{
     background-color: #76f182;
     width: 90%;
 }
+.main-forums-theme-list{
+    width: 75%;
+    padding-inline: 20px;
+    float: left;
+    margin-right: 5%;
+}
+.forums-list{
+    padding-right: 50px;
+    padding-top: 15px;
+    border-radius: 7px;
+    background-color: #3d7826;
+    min-height: 400px;
+}
+.forum-page > div{
+    display: inline-block;
+}
+.forum-page{
+    padding-left: 15px;
+}
+.forums-list li{
+    list-style-type: none
+}
+.forums-list h4{
+    margin-left: 30px;
+}

@@ -7,7 +7,8 @@ def home(request):
 
 def faq(request):
     search = Search()
-    return render(request, "FAQ.html", context={"form_search": search})
+    que = Back()
+    return render(request, "FAQ.html", context={"form_search": search,"form_q":que})
 
 def forum(request):
     search = Search()
