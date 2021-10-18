@@ -5,7 +5,7 @@
 }
 .head {
     width: 100%;
-    padding: 10px 5px 10px 5px;
+    padding: 10px 0px 10px 0px;
     background: linear-gradient(to right, #05aa15, rgba(30, 189, 13, 0.77));
 }
 
@@ -17,6 +17,7 @@ body {
     margin: 0;
     padding: 0;
     font-family: Tahoma;
+    z-index: 5;
 }
 
 .main_list {
@@ -65,34 +66,46 @@ footer {
     margin-top: auto;
     background-color: #005300;
     color: #b1b1b1;
+    bottom: 0;
+    position: relative;
+    width: 100%;
 }
 
 footer .copyright {
     padding-top: 15px;
     text-align: center;
 }
-.column.c2 {
+.columns.c2 {
     font-family: Tahoma;
     margin-bottom: 20px;
 }
-.column.c2 > div {
-    padding-top: 20px;
-    padding-bottom: 20px;
+.columns.c2 .column{
     display: inline-block;
     float: left;
-    max-width: 50%;
-    min-height: 310px;
+    width: 48%;
 }
-.column + div{
+.columns.c2 .column > div{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    min-height: 380px;
+}
+.columns + div{
     clear: left;
 }
-.map {
-    background-color: darkgreen;
-    padding-inline: 10%;
-    width: 30%;
-}
 
-.column.c3 {
+.columns column{
+    margin-bottom: 25px;
+}
+.map {
+    padding-left: 10%;
+}
+footer .column:first-child{
+    background-color: darkgreen;
+}
+footer .column.con{
+    background-color: darkolivegreen;
+}
+.columns.c3 {
     font-family: Tahoma;
     margin-bottom: 20px;
 }
@@ -103,13 +116,16 @@ footer .copyright {
     border-radius: 10px;
 }
 
-.column.c3 > div {
+.columns.c3 .column{
     padding-top: 20px;
     padding-bottom: 20px;
     margin-inline: 1%;
     display: inline-block;
     float: left;
-    max-width: 30%;
+    width: 28.5%;
+}
+.columns.c3 .column:first-child{
+    margin-left: 2.5%;
 }
 
 .photo-preview .info .name{
@@ -125,21 +141,26 @@ footer .copyright {
     color: #6f6f6f;
 }
 
-.column.c3 .photo-preview{
-    padding-top: 1%;
+.photo-preview{
+    padding-top: 4%;
 }
 
-.column.c3 .photo {
+.photo {
     text-align: center;
 }
-
-.column.c3 img {
+.photo-preview .info .date{
+    margin-top: 6%;
+}
+.photo-preview img {
     max-width: 95%;
+}
+.columns {
+    display: inline-block;
+    width: 98%;
 }
 
 .contact {
     position: absolute;
-    background-color: darkolivegreen;
     padding-left: 7%;
     width: 43%;
 }
@@ -303,4 +324,66 @@ h1{
 }
 .forums-list h4{
     margin-left: 30px;
+}
+.hiden-prod-info{
+    top: -70px;
+    width:100%;
+    height: 130%;
+    background-color: rgba(21,21,21,0.5);
+    position: fixed;
+    z-index: 1;
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.5s ease;
+}
+#muskus:target{
+    top:0;
+    visibility: visible;
+    opacity: 1;
+    transition: all 0.5s ease;
+}
+.product-info{
+    margin-left: 4%;
+    margin-top: 2%;
+    position: absolute;
+    width: 90%;
+    height: 67%;
+    background-color: white;
+    border: 7px solid #005300;
+    border-radius: 10px;
+    padding: 10px;
+    text-align: justify;
+    overflow: auto;
+}
+.product-info h2 a{
+    margin-right: 10px;
+    float: right;
+    font-family: "Material Icons";
+    color: black;
+    font-size: 30px;
+    position: fixed;
+    right: 5.8%;
+    text-decoration: none;
+}
+.product-info > div{
+    padding-inline: 40px;
+}
+.photo-preview a{
+    color: black;
+    text-decoration: none;
+}
+.welcome > p{
+    text-align: justify;
+}
+footer .columns{
+    display: block;
+}
+.column >div{
+    margin-bottom: 25px;
+}
+.column >div:last-child{
+    margin-bottom: 0px;
+}
+.column{
+    padding-inline: 1%;
 }

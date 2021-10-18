@@ -6,38 +6,51 @@
     <h1>ООО БАК "Байкал-Фурс"</h1>
     <p class="info">
         &quot;Уважаемые охотники и охотпользователи. Наша компания специализируется на закупке и экспорте продукции охотничьего хозяйства, а также мы окажем вам помощь в реализации пушнины и лекарственно-технического сырья животного и растительного происхождения на комиссионных условиях. В настоящее время мы готовы приобрести у вас струю (мускус) кабарги, промысловую пушнину, рога благородного оленя (марала, изюбря), чагу и желчные камни КРС. Требования по качеству и сортировке товаров, а также закупочные цены размещены в разделе &quot;Товары и услуги&quot;. Оплата за продукцию осуществляется в удобной для вас форме. Интересующие вас детали можно уточнить задав вопрос во вкладке &quot;Вопрос-Ответ&quot; или по электронной почте, телефону, Вацапу, Телеграм и Вайберу, указанных в разделе &quot;Контакты&quot;. Поскольку в нашей компании работают опытные специалисты охотничьего хозяйства, мы создали страницу &quot;Фото и видео&quot;, где размещаем собранные нами материалы о жизни дикой живой природы Сибири и охотничьих путешествиях. Также на сайте есть страничка «Форум», где можно обсудить наиболее актуальные и интересные вопросы об охоте правового, технологического и экономического характера.
-        <div class="column c3">
+        <div class="columns c3">
+        <div class="column">
         <div class="main-info">
             <div class="round"></div>
             <p>Факт №1</p>
         </div>
+        </div>
+        <div class="column">
         <div class="main-info">
             <div class="round"></div>
             <p>Факт №2</p>
         </div>
+        </div>
+        <div class="column">
         <div class="main-info">
             <div class="round"></div>
             <p>Факт №3</p>
+        </div>
         </div>
     </div>
 </section>
 <section class="products">
     <h1>Продукция и услуги</h1>
-    <div class="column c2">
+    <div class="columns c2">
+        <div class="column">
         <div class="image-product">
             <img src="/static/image/Kabarga.jpg">
         </div>
+        </div>
+        <div class="column">
         <div class="info-product">
             <p>Наша компания специализируется на закупке и экспорте продукции охотничьего хозяйства, а также мы готовы оказать вам помощь в реализации пушно-мехового и лекарственно-технического сырья животного и растительного происхождения на комиссионных условиях.</p>
             <p>В настоящее время мы готовы приобрести у вас струю (мускус) кабарги, промысловую пушнину, рога благородного оленя (марала, изюбря), чагу и желчные камни КРС. Требования по качеству и сортировке товаров, а также закупочные цены размещены в разделе <a href="/products">"Товары и услуги"</a>.</p>
         </div>
+        </div>
     </div>
 </section>
 <section class="forums-theme">
-    <div class="column c2">
+    <div class="columns c2">
+        <div class="column">
         <div class="forum-photo">
             <img src="static/image/olen.jpg">
         </div>
+        </div>
+        <div class="column">
         <div class="forums-theme-list">
             <div class="forum-theme">
                 <p>Тема форума №1</p>
@@ -56,46 +69,56 @@
             </div>
             <a href="/forum">Страница форума</a>
         </div>
+        </div>
     </div>
 </section>
 <section class="video-arhiv">
     <h1>Фото и видео</h1>
-    <div class="column c3">
+    <div class="columns c3">
+        <div class="column">
         <div class="photo-preview">
             <div class="photo">
                 <img src="static/image/olen.jpg">
             </div>
             <div class="info">
-                <p class="name">Фото из Мольт №3</p>
                 <p class="date">23.10.2021</p>
+                <p class="name">Фото из Мольт №3</p>
             </div>
         </div>
+        </div>
+        <div class="column">
         <div class="photo-preview">
             <div class="photo">
                 <img src="static/image/olen.jpg">
             </div>
             <div class="info">
-                <p class="name">Фото из Мольт №2</p>
                 <p class="date">21.08.2021</p>
+                <p class="name">Фото из Мольт №2</p>
             </div>
         </div>
+        </div>
+        <div class="column">
         <div class="photo-preview">
             <div class="photo">
                 <img src="static/image/olen.jpg">
             </div>
             <div class="info">
-                <p class="name">Фото из Мольт №1</p>
                 <p class="date">12.06.2021</p>
+                <p class="name">Фото из Мольт №1</p>
             </div>
+        </div>
         </div>
     </div>
 </section>
 <section class="form_back_speak">
-    <div class="column c2">
+    <div class="columns c2">
+    <div class="column">
     <div class="form_info">
         <h3>Вопросы</h3>
         <p>Если у вас возникают вопросы по различным темам, то можете отправить свой вопрос нам. Наши операторы ответят вам на почту в ближайшее время.</p>
     </div>
+    </div>
+    <div class="column">
     <div class="form">
         <form method="POST">
         {% csrf_token %}
@@ -108,6 +131,7 @@
             </table>
 
         </form>
+    </div>
     </div>
     </div>
 </section>
