@@ -99,10 +99,14 @@ footer .copyright {
 .map {
     padding-left: 10%;
 }
+footer .column{
+    padding-inline: 0;
+}
 footer .column:first-child{
     background-color: darkgreen;
+    padding-right: 3%;
 }
-footer .column.con{
+footer .column:last-child .contact{
     background-color: darkolivegreen;
 }
 .columns.c3 {
@@ -131,6 +135,11 @@ footer .column.con{
 .photo-preview .info .name{
     margin-left: 10px;
     font-size: 20px;
+}
+
+.hiden-prod-info + .columns .photo-preview .info .name{
+    text-align: center;
+    min-height: 35px;
 }
 
 .photo-preview .info .date{
@@ -269,13 +278,19 @@ h1{
     height: 150px;
     border-radius: 75px;
     background-color: #3d7826;
+    font-family: "Material Icons";
+    color: white;
 }
+.main-info .round div{
+    padding-top: 20%;
+    font-size: 550%;
+}
+
 .main-info{
-    width: 30%;
     text-align: center;
 }
 .main-info p{
-    font-size: 20px;
+    font-size: 95%;
 }
 .forum-photo{
     text-align: center;
@@ -386,4 +401,35 @@ footer .columns{
 }
 .column{
     padding-inline: 1%;
+}
+.del-footer+footer .columns{
+    display: none;
+}
+.del-footer+footer{
+    min-height: 70px;
+}
+.contacts{
+    margin-left: 5%;
+    margin-block: 20px;
+    font-size: 20px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: #ffffff;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 0px;
+    border-radius: 0px;
+    background-color: #21760e;
+    border-radius: 3.2px;
+}
+
+::-webkit-scrollbar-thumb:hover{
+    background-color: #3c7913;
+}
+
+::-webkit-scrollbar{
+    width: 12px;
 }
