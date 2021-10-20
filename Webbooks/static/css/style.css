@@ -1,0 +1,444 @@
+@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  src: url(https://fonts.gstatic.com/s/materialicons/v47/flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2) format('woff2');
+}
+.head {
+    width: 100%;
+    padding: 10px 0px 10px 0px;
+    background: linear-gradient(to right, #05aa15, rgba(30, 189, 13, 0.77));
+}
+
+.head > div {
+    display: inline-block;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Tahoma;
+    z-index: 5;
+}
+
+.main_list {
+    margin: 0px 20px 10px 3%;
+}
+.main_list span:hover a{
+    color:#d0e55a;
+}
+.search .field {
+    float: left;
+    margin: 10px 20px;
+}
+.search input[type="text"] {
+    padding: 5px;
+    font-size: 16px;
+    border-radius: 6px;
+}
+
+input[type="submit"] {
+    margin-top: 14px;
+    color: white;
+    background-color: darkgreen;
+    padding: 3px 10px;
+    border: 1px solid yellow;
+    border-radius: 3px;
+    content: "Поиск";
+}
+
+.search label {
+    display: none;
+}
+
+.main_list span {
+    margin-inline: 20px;
+    font-size: 20px;
+    font-family: Tahoma;
+}
+
+.main_list a:link,
+.main_list a:visited{
+    color: black;
+    text-decoration: none;
+}
+
+footer {
+    padding-bottom: 20px;
+    min-height: 400px;
+    margin-top: auto;
+    background-color: #005300;
+    color: #b1b1b1;
+    bottom: 0;
+    position: relative;
+    width: 100%;
+}
+
+footer .copyright {
+    padding-top: 15px;
+    text-align: center;
+}
+.columns.c2 {
+    font-family: Tahoma;
+    margin-bottom: 20px;
+}
+.columns.c2 .column{
+    display: inline-block;
+    float: left;
+    width: 48%;
+}
+.columns.c2 .column > div{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    min-height: 380px;
+}
+.columns + div{
+    clear: left;
+}
+
+.columns column{
+    margin-bottom: 25px;
+}
+.map {
+    padding-left: 10%;
+}
+footer .column{
+    padding-inline: 0;
+}
+footer .column:first-child{
+    background-color: darkgreen;
+    padding-right: 3%;
+}
+footer .column:last-child .contact{
+    background-color: darkolivegreen;
+}
+.columns.c3 {
+    font-family: Tahoma;
+    margin-bottom: 20px;
+}
+
+.photo-preview{
+    background-color: white;
+    border: 3px solid black;
+    border-radius: 10px;
+}
+
+.columns.c3 .column{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-inline: 1%;
+    display: inline-block;
+    float: left;
+    width: 28.5%;
+}
+.columns.c3 .column:first-child{
+    margin-left: 2.5%;
+}
+
+.photo-preview .info .name{
+    margin-left: 10px;
+    font-size: 20px;
+}
+
+.hiden-prod-info + .columns .photo-preview .info .name{
+    text-align: center;
+    min-height: 35px;
+}
+
+.photo-preview .info .date{
+    margin-block: 0px;
+    margin-right: 5px;
+    float: right;
+    font-size: 12px;
+    color: #6f6f6f;
+}
+
+.photo-preview{
+    padding-top: 4%;
+}
+
+.photo {
+    text-align: center;
+}
+.photo-preview .info .date{
+    margin-top: 6%;
+}
+
+.photo-preview img {
+    max-width: 90%;
+    border-radius: 10px;
+    transition: max-width 0.3s ease;
+}
+.photo-preview> a:hover img {
+    max-width: 95%;
+    transition: max-width 0.3s ease;
+}
+.columns {
+    display: inline-block;
+    width: 98%;
+}
+
+.contact {
+    position: absolute;
+    padding-left: 7%;
+    width: 43%;
+}
+
+.logo img {
+    padding-left: 50px;
+    margin-right: 50px;
+    width: 40px;
+
+}
+
+.menu > div {
+    display: table-cell;
+}
+
+.menu {
+    margin-left: 10%;
+}
+.logo{
+    float: left;
+}
+section{
+    max-width: 100%;
+    min-height: 500px;
+    padding: 20px 5%;
+}
+.products,
+.video-arhiv{
+    background-color: rgba(74, 255, 74, 0.68);
+}
+.poster{
+    object-fit: cover;
+    width: 100%;
+    max-height: 500px;
+}
+h1{
+    text-align: center;
+    font-size: 40px;
+    font-family: Tahoma;
+}
+.con_info .home:before{
+    content: "business";
+    font-size: 20px;
+    font-family: "Material Icons";
+    margin-right: 10px;
+    float: left;
+}
+.con_info .email:before{
+    content: "email";
+    font-size: 20px;
+    font-family: "Material Icons";
+    margin-right: 10px;
+    float: left;
+}
+.con_info .phone:before{
+    content: "call";
+    font-size: 20px;
+    font-family: "Material Icons";
+    margin-right: 10px;
+    float: left;
+}
+.con_info img{
+    max-width: 25px;
+    margin-right: 10px;
+}
+.form_back_speak .form td,
+.form_back_speak .form th{
+    padding-bottom: 20px;
+}
+.form_back_speak .form td {
+    padding-left: 20px;
+}
+.form_back_speak .form th {
+    padding-top: 5px;
+    vertical-align: top;
+}
+.form_back_speak .form input,
+.form_back_speak .form select,
+.form_back_speak .form option,
+.form_back_speak .form textarea{
+    width: 120%;
+    font-size: 16px;
+    padding: 6px;
+}
+.form_back_speak .form select,
+.form_back_speak .form option{
+    width: 124%;
+}
+.form_back_speak .form{
+    margin-top: 18.72px;
+}
+.form_back_speak .form input[type="submit"]{
+    width: auto;
+}
+.image-product img{
+    height: 350px;
+}
+.image-product{
+    text-align: center;
+    width: 50%;
+}
+.main-info .round{
+    margin-left: auto;
+    margin-right: auto;
+    width: 150px;
+    height: 150px;
+    border-radius: 75px;
+    background-color: #3d7826;
+    font-family: "Material Icons";
+    color: white;
+}
+.main-info .round div{
+    padding-top: 20%;
+    font-size: 550%;
+}
+
+.main-info{
+    text-align: center;
+}
+.main-info p{
+    font-size: 95%;
+}
+.forum-photo{
+    text-align: center;
+}
+.forum-photo img{
+    width: 90%;
+    margin-top: 50px;
+}
+.forums-theme-list{
+    width: 100%;
+    margin-top: 5%;
+}
+.forums-theme-list > a{
+    margin-left: 5%;
+}
+.forum-theme{
+    margin-left: 5%;
+    margin-bottom: 5px;
+    padding-block: 2px;
+    padding-left: 10px;
+    border-radius: 7px;
+    background-color: #76f182;
+    width: 90%;
+}
+.main-forums-theme-list{
+    width: 75%;
+    padding-inline: 20px;
+    float: left;
+    margin-right: 5%;
+}
+.forums-list{
+    padding-right: 50px;
+    padding-top: 15px;
+    border-radius: 7px;
+    background-color: #3d7826;
+    min-height: 400px;
+}
+.forum-page > div{
+    display: inline-block;
+}
+.forum-page{
+    padding-left: 15px;
+}
+.forums-list li{
+    list-style-type: none
+}
+.forums-list h4{
+    margin-left: 30px;
+}
+.hiden-prod-info{
+    top: -70px;
+    width:100%;
+    height: 130%;
+    background-color: rgba(21,21,21,0.5);
+    position: fixed;
+    z-index: 1;
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.5s ease;
+}
+#muskus:target{
+    top:0;
+    visibility: visible;
+    opacity: 1;
+    transition: all 0.5s ease;
+}
+.product-info{
+    margin-left: 4%;
+    margin-top: 2%;
+    position: absolute;
+    width: 90%;
+    height: 67%;
+    background-color: white;
+    border: 7px solid #005300;
+    border-radius: 10px;
+    padding: 10px;
+    text-align: justify;
+    overflow: auto;
+}
+.product-info h2 a{
+    margin-right: 10px;
+    float: right;
+    font-family: "Material Icons";
+    color: black;
+    font-size: 30px;
+    position: fixed;
+    right: 5.8%;
+    text-decoration: none;
+}
+.product-info > div{
+    padding-inline: 40px;
+}
+.photo-preview a{
+    color: black;
+    text-decoration: none;
+}
+.welcome > p{
+    text-align: justify;
+}
+footer .columns{
+    display: block;
+}
+.column >div{
+    margin-bottom: 25px;
+}
+.column >div:last-child{
+    margin-bottom: 0px;
+}
+.column{
+    padding-inline: 1%;
+}
+.del-footer+footer .columns{
+    display: none;
+}
+.del-footer+footer{
+    min-height: 70px;
+}
+.contacts{
+    margin-left: 5%;
+    margin-block: 20px;
+    font-size: 20px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: #ffffff;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 0px;
+    border-radius: 0px;
+    background-color: #21760e;
+    border-radius: 3.2px;
+}
+
+::-webkit-scrollbar-thumb:hover{
+    background-color: #3c7913;
+}
+
+::-webkit-scrollbar{
+    width: 12px;
+}

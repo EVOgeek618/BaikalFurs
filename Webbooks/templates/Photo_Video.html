@@ -1,3 +1,15 @@
 {% extends "base.html" %}
 {% block title%}Фото и видео{% endblock title%}
-{% block body %}{% endblock body %}
+{% block body %}
+    <h1>Фото и видео</h1>
+    {% for photo in photos %}
+        <img style="width: 30%" src="/{{ photo }}">
+    {% endfor %}
+    {% for video in videos %}
+        <a href="/{{ video }}">
+            <video style="width: 30%">
+                <source src="/{{ video }}">
+            </video>
+        </a>
+    {% endfor %}
+{% endblock body %}

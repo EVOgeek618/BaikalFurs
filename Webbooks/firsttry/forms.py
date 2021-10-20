@@ -10,3 +10,4 @@ class Back(forms.Form):
                                         label="Тема вопросов:")
     email = forms.EmailField(label="Эл. почта:")
     quetion = forms.CharField(widget=forms.Textarea, label="Вопрос:")
+
