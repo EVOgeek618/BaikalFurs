@@ -442,3 +442,12 @@ footer .columns{
 ::-webkit-scrollbar{
     width: 12px;
 }
+.image-list img,
+.video-list video{
+    width: 30%;
+    margin-inline: 1.5%;
+}
+.image-list,
+.video-list{
+    padding-inline: 20px;
+}

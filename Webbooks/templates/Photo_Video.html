@@ -2,14 +2,18 @@
 {% block title%}Фото и видео{% endblock title%}
 {% block body %}
     <h1>Фото и видео</h1>
+    <h3>Фотографии</h3>
+    <div class="image-list">
     {% for photo in photos %}
-        <img style="width: 30%" src="/{{ photo }}">
+        <img src="/{{ photo }}">
     {% endfor %}
+    </div>
+    <h3>Видео</h3>
+    <div class="video-list">
     {% for video in videos %}
-        <a href="/{{ video }}">
-            <video style="width: 30%">
-                <source src="/{{ video }}">
-            </video>
-        </a>
+        <video controls>
+            <source src="/{{ video }}">
+        </video>
     {% endfor %}
+    </div>
 {% endblock body %}
