@@ -451,3 +451,15 @@ footer .columns{
 .video-list{
     padding-inline: 20px;
 }
+.otchets td{
+    width: 12%;
+    padding-inline: 1%;
+}
+.otchets td img{
+    max-height: 8em;
+    transition: all 0.3s ease;
+}
+.otchets td:hover img{
+    max-height: 7em;
+    transition: all 0.3s ease;
+}

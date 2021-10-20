@@ -51,15 +51,26 @@ def contacts(request):
 
 def photo(request):
     search = Search()
-    phs = list(Photo.objects.filter(date="2021-10-20"))
+    lis = list(Photo.objects.order_by("date","name").all())
+    names = sorted(list(set([i.name for i in lis])), reverse=True)
+    phs = [list(Photo.objects.order_by("date","name").filter(name=name, is_video=False))[0] for name in names]
+    phs.extend([None for i in range(5-len(names)%5)])
+    phs_s = []
+    for i in range(0, len(phs), 5):
+        phs_s.append(phs[i:i + 5])
+    return render(request, "Photo_Video.html", context={"form_search": search,"lis":list(phs), "columns": phs_s})
+
+def otchet(request, name):
+    search = Search()
+    phs = list(Photo.objects.filter(name=name))
     photos = []
-    videos=[]
+    videos = []
     for i in phs:
         if str(i.dir_way)[::-1][:str(i.dir_way)[::-1].find(".")][::-1] in ["mp4", "avi", "wav", "mkv"]:
             videos.append(i.dir_way)
         else:
             photos.append(i.dir_way)
-    return render(request, "Photo_Video.html", context={"form_search": search, "photos": photos,"videos": videos})
+    return render(request, "otchets.html", context={"form_search": search, "photos": photos, "videos": videos, "title":name})
 
 def products(request):
     search = Search()

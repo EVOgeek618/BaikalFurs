@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title%}Фото и видео{% endblock title%}
+{% block body %}
+    <h1>{{ title }}</h1>
+    {% if photos %}
+    <h3>Фотографии</h3>
+    {% endif %}
+    <div class="image-list">
+    {% for photo in photos %}
+        <img src="/{{ photo }}">
+    {% endfor %}
+    </div>
+    {% if videos %}
+    <h3>Видео</h3>
+    {% endif %}
+    <div class="video-list">
+    {% for video in videos %}
+        <video controls>
+            <source src="/{{ video }}">
+        </video>
+    {% endfor %}
+    </div>
+{% endblock body %}

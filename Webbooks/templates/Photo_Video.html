@@ -2,18 +2,28 @@
 {% block title%}Фото и видео{% endblock title%}
 {% block body %}
     <h1>Фото и видео</h1>
-    <h3>Фотографии</h3>
-    <div class="image-list">
-    {% for photo in photos %}
-        <img src="/{{ photo }}">
+    <p>Здесь вы можете увидеть интересные материалы, полезные для охоты.</p>
+    <table class="otchets">
+    {% for lis in columns %}
+    <tr>
+    {% for el in lis %}
+        {% if el %}
+        <td>
+        <div class="photo-preview">
+            <a href="/otchet/{{ el.name }}"><div class="photo">
+                <img src="/{{ el.dir_way }}">
+            </div>
+            <div class="info">
+                <p class="date">{{ el.date }}</p>
+                <p class="name">{{ el.name }}</p>
+            </div></a>
+        </div>
+        </td>
+        {% else %}
+            <td></td>
+        {% endif %}
     {% endfor %}
-    </div>
-    <h3>Видео</h3>
-    <div class="video-list">
-    {% for video in videos %}
-        <video controls>
-            <source src="/{{ video }}">
-        </video>
+    </tr>
     {% endfor %}
-    </div>
+    </table>
 {% endblock body %}

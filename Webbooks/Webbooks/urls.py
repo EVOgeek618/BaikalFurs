@@ -23,5 +23,6 @@ urlpatterns = [
     path('forum/', views.forum),
     path('photoarchive/', views.photo),
     path('products/', views.products),
+    path('otchet/<str:name>/', views.otchet),
     path('admin/', admin.site.urls),
 ]
