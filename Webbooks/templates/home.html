@@ -83,35 +83,41 @@
     <div class="columns c3">
         <div class="column">
         <div class="photo-preview">
+            <a href="/otchet/{{ lis.0.name }}">
             <div class="photo">
-                <img src="static/image/olen.jpg">
+                <img src="/{{ lis.0.dir_way }}">
             </div>
             <div class="info">
-                <p class="date">23.10.2021</p>
-                <p class="name">Фото из Мольт №3</p>
+                <p class="date">{{ lis.0.date }}</p>
+                <p class="name">{{ lis.0.name }}</p>
             </div>
+            </a>
         </div>
         </div>
         <div class="column">
         <div class="photo-preview">
+            <a href="/otchet/{{ lis.1.name }}">
             <div class="photo">
-                <img src="static/image/olen.jpg">
+                <img src="/{{ lis.1.dir_way }}">
             </div>
             <div class="info">
-                <p class="date">21.08.2021</p>
-                <p class="name">Фото из Мольт №2</p>
+                <p class="date">{{ lis.1.date }}</p>
+                <p class="name">{{ lis.1.name }}</p>
             </div>
+            </a>
         </div>
         </div>
         <div class="column">
         <div class="photo-preview">
+            <a href="/otchet/{{ lis.2.name }}">
             <div class="photo">
-                <img src="static/image/olen.jpg">
+                <img src="/{{ lis.2.dir_way }}">
             </div>
             <div class="info">
-                <p class="date">12.06.2021</p>
-                <p class="name">Фото из Мольт №1</p>
+                <p class="date">{{ lis.2.date }}</p>
+                <p class="name">{{ lis.2.name }}</p>
             </div>
+            </a>
         </div>
         </div>
     </div>

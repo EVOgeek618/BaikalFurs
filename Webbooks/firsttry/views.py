@@ -7,6 +7,9 @@ def home(request):
     search = Search()
     list_theme={'1':"Продажа товара", '2': "Сотрудничество", '3':"Охота и лесное хозяйство"}
     que = Back()
+    lis = list(Photo.objects.order_by("date", "name").all())
+    names = sorted(list(set([i.name for i in lis])), reverse=True)
+    phs = [list(Photo.objects.order_by("date", "name").filter(name=name, is_video=False))[0] for name in names][:3]
     if request.method == 'POST':
         ret = Back(request.POST)
         if ret.is_valid():
@@ -20,7 +23,7 @@ def home(request):
                 return HttpResponse('Ошибка в теме письма.')
             return redirect('forum')
     else:
-        return render(request,"home.html", context={"form_search":search,"form_q":que})
+        return render(request,"home.html", context={"form_search":search,"form_q":que,"lis":phs})
 
 def faq(request):
     search = Search()
