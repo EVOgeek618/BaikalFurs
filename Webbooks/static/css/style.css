@@ -360,7 +360,11 @@ h1{
     opacity: 0;
     transition: all 0.5s ease;
 }
-#muskus:target{
+#muskus:target,
+#roga-pants:target,
+#prom-push:target,
+#krs:target,
+#chaga:target{
     top:0;
     visibility: visible;
     opacity: 1;
@@ -462,4 +466,7 @@ footer .columns{
 .otchets td:hover img{
     max-height: 7em;
     transition: all 0.3s ease;
+}
+.con_info .phones{
+    margin-left: 30px;
 }

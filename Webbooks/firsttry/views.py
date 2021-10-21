@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from .forms import Search, Back
-from .models import Photo
+from .models import Photo, Ask
+import datetime
 from django.http import HttpResponse, HttpResponseRedirect
 from django.core.mail import send_mail, BadHeaderError
 def home(request):
@@ -16,12 +17,13 @@ def home(request):
             theme = list_theme[ret.cleaned_data['theme']]
             email = ret.cleaned_data['email']
             quetion = ret.cleaned_data['quetion']
+            Ask.objects.create(name=theme, email=email, quetion=quetion, date=datetime.datetime.now())
             try:
-                send_mail(f'{theme} от {email}', quetion,
-                          ["stevenorton2610@gmail.com"], ["stevenorton2610@gmail.com"])
+                pass
+                #send_mail(f'{theme} от {email}', quetion,["stevenorton2610@gmail.com"], ["stevenorton2610@gmail.com"])
             except BadHeaderError:
                 return HttpResponse('Ошибка в теме письма.')
-            return redirect('forum')
+            return redirect('/forum')
     else:
         return render(request,"home.html", context={"form_search":search,"form_q":que,"lis":phs})
 
@@ -35,12 +37,13 @@ def faq(request):
             theme = list_theme[ret.cleaned_data['theme']]
             email = ret.cleaned_data['email']
             quetion = ret.cleaned_data['quetion']
+            Ask.objects.create(name=theme, email=email, quetion=quetion, date=datetime.datetime.now())
             try:
-                send_mail(f'{theme} от {email}', quetion,
-                          ["stevenorton2610@gmail.com"], ["stevenorton2610@gmail.com"])
+                pass
+                #send_mail(f'{theme} от {email}', quetion,["stevenorton2610@gmail.com"], ["stevenorton2610@gmail.com"])
             except BadHeaderError:
                 return HttpResponse('Ошибка в теме письма.')
-            return redirect('forum')
+            return redirect('/forum')
     else:
         return render(request, "FAQ.html", context={"form_search": search,"form_q":que})
 
