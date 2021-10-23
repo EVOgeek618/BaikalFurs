@@ -1,13 +1,39 @@
 {% extends "base.html" %}
 {% block title%}Фото и видео{% endblock title%}
 {% block body %}
+    {% for i in photos %}
+    <div class="hidden-photo" id="i{{ forloop.counter }}">
+        <a href="#"><div class="full-screen"></div></a>
+        {% if not forloop.first %}
+            <a href="#i{{ forloop.counter0 }}"><div class="to-left"></div></a>
+        {% endif %}
+            <img src="/{{ i }}">
+        {% if not forloop.last %}
+            <a href="#i{{ forloop.counter|add:"1" }}"><div class="to-right"></div></a>
+        {% endif %}
+    </div>
+    {% endfor %}
+    {% for i in videos %}
+    <div class="hidden-photo" id="v{{ forloop.counter }}">
+        <a href=""><div class="full-screen"></div></a>
+        {% if not forloop.first %}
+            <a href="#v{{ forloop.counter0 }}"><div class="to-left"></div></a>
+        {% endif %}
+            <video controls>
+                <source src="/{{ i }}">
+            </video>
+        {% if not forloop.last %}
+            <a href="#v{{ forloop.counter|add:"1" }}"><div class="to-right"></div></a>
+        {% endif %}
+    </div>
+    {% endfor %}
     <h1>{{ title }}</h1>
     {% if photos %}
     <h3>Фотографии</h3>
     {% endif %}
     <div class="image-list">
     {% for photo in photos %}
-        <img src="/{{ photo }}">
+        <a href="#i{{ forloop.counter }}"><img src="/{{ photo }}"></a>
     {% endfor %}
     </div>
     {% if videos %}
@@ -15,9 +41,11 @@
     {% endif %}
     <div class="video-list">
     {% for video in videos %}
-        <video controls>
+        <a href="#v{{ forloop.counter }}">
+        <video preload="metadata">
             <source src="/{{ video }}">
         </video>
+        </a>
     {% endfor %}
     </div>
 {% endblock body %}
