@@ -64,7 +64,7 @@
     {% for video in videos %}
         <a href="#v{{ forloop.counter }}">
         <div class="video-prew">
-        <video controls>
+        <video autoplay muted>
             <source src="/{{ video }}">
         </video>
         </div>
