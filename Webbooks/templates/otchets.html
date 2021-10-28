@@ -63,11 +63,11 @@
     <div class="video-list">
     {% for video in videos %}
         <a href="#v{{ forloop.counter }}">
-        <div class="video-prew">
-        <video autoplay muted>
-            <source src="/{{ video }}">
-        </video>
-        </div>
+            <div class="video-prew">
+                <video preload="metadata">
+                    <source src="/{{ video }}">
+                </video>
+            </div>
         </a>
     {% endfor %}
     </div>
