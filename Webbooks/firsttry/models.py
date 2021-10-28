@@ -1,9 +1,16 @@
 from django.db import models
 
-class Photo(models.Model):
+class Otchets(models.Model):
     name = models.CharField(max_length=100, verbose_name="Название отчёта")
     date = models.DateField(verbose_name="Дата загрузки")
+    text = models.TextField(verbose_name="Текст отчета")
+    def __str__(self):
+        return self.name
+
+class Photo(models.Model):
+    name = models.CharField(max_length=100, verbose_name="Название фото/видео", null=True, default="Неизвестное")
     dir_way = models.FileField(upload_to="static/image/photo/", verbose_name="Файл")
+    otchet = models.ForeignKey(Otchets, on_delete=models.CASCADE, verbose_name="Название отчёта")
     is_video = models.BooleanField(verbose_name="Видео?")
 
 class Ask(models.Model):

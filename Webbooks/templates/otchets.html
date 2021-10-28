@@ -5,11 +5,20 @@
     <div class="hidden-photo" id="i{{ forloop.counter }}">
         <a href="#"><div class="full-screen"></div></a>
         {% if not forloop.first %}
-            <a href="#i{{ forloop.counter0 }}"><div class="to-left"></div></a>
+            <a href="#i{{ forloop.counter0 }}">
+                <svg class=to-left>
+                    <polygon points="20,0 20,20 0,10" stroke-width="1"/>
+                </svg>
+            </a>
         {% endif %}
             <img src="/{{ i }}">
+            <div class="number-of-content">{{ forloop.counter }} из {{ photos|length }}</div>
         {% if not forloop.last %}
-            <a href="#i{{ forloop.counter|add:"1" }}"><div class="to-right"></div></a>
+            <a href="#i{{ forloop.counter|add:"1" }}">
+                <svg class=to-right>
+                    <polygon points="0,20 0,0 20,10" stroke-width="1"/>
+                </svg>
+            </a>
         {% endif %}
     </div>
     {% endfor %}
@@ -17,17 +26,29 @@
     <div class="hidden-photo" id="v{{ forloop.counter }}">
         <a href=""><div class="full-screen"></div></a>
         {% if not forloop.first %}
-            <a href="#v{{ forloop.counter0 }}"><div class="to-left"></div></a>
+            <a href="#v{{ forloop.counter0 }}">
+                <svg class=to-left>
+                    <polygon points="20,0 20,20 0,10" stroke-width="1"/>
+                </svg>
+            </a>
         {% endif %}
             <video controls>
                 <source src="/{{ i }}">
             </video>
+            <div class="number-of-content">{{ forloop.counter }} из {{ videos|length }}</div>
         {% if not forloop.last %}
-            <a href="#v{{ forloop.counter|add:"1" }}"><div class="to-right"></div></a>
+            <a href="#v{{ forloop.counter|add:"1" }}">
+                <svg class=to-right>
+                    <polygon points="0,20 0,0 20,10" stroke-width="1"/>
+                </svg>
+            </a>
         {% endif %}
     </div>
     {% endfor %}
     <h1>{{ title }}</h1>
+    {% autoescape off %}
+    <p class="otchet-prew">{{ text }}</p>
+    {% endautoescape %}
     {% if photos %}
     <h3>Фотографии</h3>
     {% endif %}
@@ -42,9 +63,11 @@
     <div class="video-list">
     {% for video in videos %}
         <a href="#v{{ forloop.counter }}">
-        <video preload="metadata">
+        <div class="video-prew">
+        <video controls>
             <source src="/{{ video }}">
         </video>
+        </div>
         </a>
     {% endfor %}
     </div>

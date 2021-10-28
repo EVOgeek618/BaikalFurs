@@ -7,15 +7,15 @@
     {% for lis in columns %}
     <tr>
     {% for el in lis %}
-        {% if el %}
+        {% if el.0 %}
         <td>
         <div class="photo-preview">
-            <a href="/otchet/{{ el.name }}"><div class="photo">
-                <img src="/{{ el.dir_way }}">
+            <a href="/otchet/{{ el.0.name }}"><div class="photo">
+                <img src="/{{ el.1 }}">
             </div>
             <div class="info">
-                <p class="date">{{ el.date }}</p>
-                <p class="name">{{ el.name }}</p>
+                <p class="date">{{ el.0.date }}</p>
+                <p class="name">{{ el.0.name }}</p>
             </div></a>
         </div>
         </td>
