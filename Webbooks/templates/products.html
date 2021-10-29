@@ -2,7 +2,39 @@
 {% block title%}Продукция и услуги{% endblock title%}
 {% block body %}
     <h1>Продукция и услуги</h1>
-    <p>Здесь можно найти всю информацию по требуемуму качеству товара для его скупки нашей компанией</p>
+    <div class="hiden-prod-info" id="proch">
+        <div class="product-info">
+            <h2><span>Прочая продукция</span>
+            <a href="#">close</a>
+            </h2>
+            <div>
+                Фирма «Байкал-Фурс» периодически осуществляет заготовку или
+                поставку на комиссионных условиях различной продукции охотничьего хозяйства. Это -
+                шкурки «цветной» промысловой пушнины, рога и панты различных видов оленей,
+                лекарственно-техническое и пищевой сырьё животного и растительного происхождения,
+                готовая продукция. Мы будем рады вашим предложениям по закупке или сбыту
+                имеющейся у вас лесной продукции, совместной деятельности и партнёрству в
+                охотхозяйственной сфере.
+            </div>
+        </div>
+    </div>
+    <div class="hiden-prod-info" id="help">
+        <div class="product-info">
+            <h2><span>Услуги</span>
+            <a href="#">close</a>
+            </h2>
+            <div>
+                Наша компания оказывает услуги по поставке вашей продукции на экспорт на
+                комиссионных условиях. Мы готовы оказать вам помощь в реализации струи кабарги, чаги,
+                пантов северного оленя, рогов благородного и пятнистого оленей (марала, изюбря),
+                желчных камней КРС, пушнины. Размер комиссионного вознаграждения зависит от вида
+                товара и его качества, наличия и правильности оформления сопроводительных
+                документов, условий поставки, объёма партии товара и составляет от 5 до 15%. Все
+                условия поставки вашей продукции на экспорт вы можете уточнить у наших специалистов,
+                связавшись с ними по вкладке Контакты.
+            </div>
+        </div>
+    </div>
     <div class="hiden-prod-info" id="chaga">
         <div class="product-info">
             <h2><span>Чага</span>
@@ -178,7 +210,7 @@
         <div class="column">
         <div class="photo-preview">
             <a href="#prom-push"><div class="photo">
-                <img src="/static/image/olen.jpg">
+                <img src="/static/image/Соболь.jpg">
             </div>
             <div class="info">
                 <p class="name">Промысловая пушнина</p>
@@ -186,19 +218,19 @@
         </div>
         <div class="photo-preview">
             <a href="#krs"><div class="photo">
-                <img src="/static/image/olen.jpg">
+                <img src="/static/image/Желчные камни КРС.jpg">
             </div>
             <div class="info">
                 <p class="name">Желчный камень КРС</p>
             </div></a>
         </div>
         <div class="photo-preview">
-            <div class="photo">
-                <img src="/static/image/olen.jpg">
+            <a href="#help"><div class="photo">
+                <img src="/static/image/Аукцион.jpg">
             </div>
             <div class="info">
                 <p class="name">Услуги</p>
-            </div>
+            </div></a>
         </div>
         </div>
         <div class="column">
@@ -211,12 +243,12 @@
             </div></a>
         </div>
         <div class="photo-preview">
-            <div class="photo">
-                <img src="/static/image/olen.jpg">
+            <a href="#proch"><div class="photo">
+                <img src="/static/image/желчь БМ.jpg">
             </div>
             <div class="info">
                 <p class="name">Прочая продукция</p>
-            </div>
+            </div></a>
         </div>
         </div>
     </div>

@@ -22,7 +22,7 @@
         {% endif %}
     </div>
     {% endfor %}
-    {% for i in videos %}
+    <!--{% for i in videos %}
     <div class="hidden-photo" id="v{{ forloop.counter }}">
         <a href=""><div class="full-screen"></div></a>
         {% if not forloop.first %}
@@ -44,7 +44,7 @@
             </a>
         {% endif %}
     </div>
-    {% endfor %}
+    {% endfor %}!-->
     <h1>{{ title }}</h1>
     {% autoescape off %}
     <p class="otchet-prew">{{ text }}</p>
@@ -57,18 +57,20 @@
         <a href="#i{{ forloop.counter }}"><img src="/{{ photo }}"></a>
     {% endfor %}
     </div>
-    {% if videos %}
+    {% if videos or urlvideos %}
     <h3>Видео</h3>
     {% endif %}
     <div class="video-list">
     {% for video in videos %}
-        <a href="#v{{ forloop.counter }}">
-            <div class="video-prew">
-                <video preload="metadata">
-                    <source src="/{{ video }}">
-                </video>
-            </div>
+        <a href="/{{ video }}" target="_blank">
+            <img src="/static/image/video-play.png">
+            <video preload="metadata">
+                <source src="/{{ video }}">
+            </video>
         </a>
+    {% endfor %}
+    {% for urlvideo in urlvideos %}
+        <iframe width="20%" src="{{ urlvideo }}" title="YouTube video player" frameborder="0" clipboard-write; encrypted-media; allowfullscreen></iframe>
     {% endfor %}
     </div>
 {% endblock body %}

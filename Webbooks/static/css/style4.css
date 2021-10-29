@@ -280,11 +280,18 @@ h1{
     width: auto;
 }
 .image-product img{
-    width: 180%;
+    width: 90%;
+    position: absolute;
+    margin: auto;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
 }
 .image-product{
+    margin-top: 40px;
     text-align: center;
-    width: 50%;
+    position: relative;
 }
 .main-info .round{
     margin-left: auto;
@@ -469,12 +476,18 @@ footer .columns{
 }
 .image-list img,
 .video-list video{
-    width: 22%;
-    margin-inline: 0.5%;
+    width: 100%;
 }
 .image-list,
 .video-list{
-    padding-inline: 20px;
+    padding-inline: 2%;
+}
+.image-list a,
+.video-list a{
+    display: inline-block;
+    width: 23.5%;
+    margin-right: 0.5%;
+    margin-bottom: 2vh;
 }
 .otchets td{
     width: 12%;
@@ -591,5 +604,36 @@ h3{
 }
 .video-prew{
     display: inline;
-    width: min-content;
+    z-index: 2;
+    background-color: #005300;
 }
+.form_info p,
+.contact-prew{
+    margin-inline: 20px;
+}
+.welcome .info a{
+    font-weight: bold;
+    color: black;
+    text-decoration: none;
+}
+.welcome .info a:hover{
+    color: #4ec212;
+}
+.welcome .info a:active{
+    color: #7ff37f;
+}
+.video-list a{
+    position: relative;
+    text-decoration: none;
+}
+.video-list a img{
+    position: absolute;
+    visibility: hidden;
+    width: 100%;
+    opacity: 60%;
+    margin-left: 0.3%;
+}
+.video-list a:hover img{
+    visibility: visible;
+}
+

@@ -6,7 +6,8 @@ class Search(forms.Form):
 class Back(forms.Form):
     theme = forms.ChoiceField(choices=((1, "Продажа товара"),
                                        (2, "Сотрудничество"),
-                                       (3, "Охота и лесное хозяйство")),
+                                       (3, "Охота и охотьничье хозяйство"),
+                                       (4,"Прочее")),
                                         label="Тема вопросов:")
     email = forms.EmailField(label="Эл. почта:")
     quetion = forms.CharField(widget=forms.Textarea, label="Вопрос:")

@@ -1,12 +1,12 @@
 from django.shortcuts import render, redirect
 from .forms import Search, Back
-from .models import Photo, Ask, Otchets
+from .models import Photo, Ask, Otchets, URL_Video
 import datetime
 from django.http import HttpResponse, HttpResponseRedirect
 from django.core.mail import send_mail, BadHeaderError
 def home(request):
     search = Search()
-    list_theme={'1':"Продажа товара", '2': "Сотрудничество", '3':"Охота и лесное хозяйство"}
+    list_theme={'1':"Продажа товара", '2': "Сотрудничество", '3':"Охота и лесное хозяйство", '4':'Прочее'}
     que = Back()
     lis = list(Otchets.objects.order_by("date", "name").all())[:3]
     phs = []
@@ -30,7 +30,7 @@ def home(request):
 
 def faq(request):
     search = Search()
-    list_theme = {'1': "Продажа товара", '2': "Сотрудничество", '3': "Охота и лесное хозяйство"}
+    list_theme = {'1': "Продажа товара", '2': "Сотрудничество", '3': "Охота и лесное хозяйство", '4':'Прочее'}
     que = Back()
     if request.method == 'POST':
         ret = Back(request.POST)
@@ -72,6 +72,7 @@ def photo(request):
 def otchet(request, name):
     search = Search()
     phs = list(Photo.objects.filter(otchet=Otchets.objects.get(name=name)))
+    urlvideos = list(URL_Video.objects.filter(otchet=Otchets.objects.get(name=name)))
     photos = []
     videos = []
     for i in phs:
@@ -80,7 +81,8 @@ def otchet(request, name):
         else:
             photos.append(i.dir_way)
     return render(request, "otchets.html", context={"form_search": search, "photos": photos, "videos": videos,
-                                                    "title":name, "text":Otchets.objects.get(name=name).text})
+                                                    "title":name, "text":Otchets.objects.get(name=name).text,
+                                                    "urlvideos":urlvideos})
 
 def products(request):
     search = Search()
