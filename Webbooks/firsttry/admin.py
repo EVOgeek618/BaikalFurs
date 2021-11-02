@@ -12,5 +12,3 @@ class AdminAsk(admin.ModelAdmin):
 @admin.register(URL_Video)
 class AdminAsk(admin.ModelAdmin):
     list_display = ("name", "dir_way", "otchet")
-
-# Register your models here.

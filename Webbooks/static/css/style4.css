@@ -123,6 +123,7 @@ footer .column:last-child .contact{
 }
 
 .photo-preview{
+    padding-top: 4%;
     background-color: white;
     border: 3px solid black;
     border-radius: 10px;
@@ -153,13 +154,10 @@ footer .column:last-child .contact{
 .photo-preview .info .date{
     margin-block: 0px;
     margin-right: 5px;
-    float: right;
+    margin-bottom: 7px;
+    text-align: end;
     font-size: 12px;
     color: #6f6f6f;
-}
-
-.photo-preview{
-    padding-top: 4%;
 }
 
 .photo {
@@ -494,12 +492,12 @@ footer .columns{
     padding-inline: 1%;
 }
 .otchets td img{
-    max-height: 8em;
-    transition: all 0.3s ease;
+    max-height: 7em;
+    transition: all 0.1s ease;
 }
 .otchets td:hover img{
-    max-height: 7em;
-    transition: all 0.3s ease;
+    max-height: 20em;
+    transition: all 0.1s ease;
 }
 .con_info .phones{
     margin-left: 30px;
