@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .forms import Search, Back
+from .forms import Search, Back, Add_Forum_Theme
 from .models import Photo, Ask, Otchets, URL_Video
 import datetime
 from django.http import HttpResponse, HttpResponseRedirect
@@ -8,7 +8,7 @@ def home(request):
     search = Search()
     list_theme={'1':"Продажа товара", '2': "Сотрудничество", '3':"Охота и лесное хозяйство", '4':'Прочее'}
     que = Back()
-    lis = list(Otchets.objects.order_by("date", "name").all())[:3]
+    lis = list(Otchets.objects.order_by("-date", "name").all())[:3]
     phs = []
     for i in lis:
         phs.append([i, list(Photo.objects.filter(otchet=i, is_video=False))[0].dir_way])
@@ -58,7 +58,7 @@ def contacts(request):
 
 def photo(request):
     search = Search()
-    lis = list(Otchets.objects.order_by("date","name").all())
+    lis = list(Otchets.objects.order_by("-date","name").all())
     phs=[]
     for i in lis:
         phs.append([i,list(Photo.objects.filter(otchet=i,is_video=False))[0].dir_way])
@@ -87,3 +87,7 @@ def otchet(request, name):
 def products(request):
     search = Search()
     return render(request, "products.html", context={"form_search": search})
+
+def add_forum_theme(request):
+    add = Add_Forum_Theme()
+    return render(request, "add_forum_theme.html", context={"form": add})
