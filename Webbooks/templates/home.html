@@ -127,6 +127,7 @@
     </div>
     <div class="column">
     <div class="form">
+        {% if form_q %}
         <form method="POST">
         {% csrf_token %}
             <table>
@@ -136,8 +137,10 @@
             <td><input type="submit"></td>
             </tr>
             </table>
-
         </form>
+        {% else %}
+            <p>Спасибо. Наши операторы ответят вам в ближайшее время</p>
+        {% endif %}
     </div>
     </div>
     </div>

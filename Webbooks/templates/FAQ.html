@@ -6,17 +6,21 @@
         <p>Если у вас возникают вопросы по различным темам, то можете отправить свой вопрос нам. Наши операторы ответят вам на почту в ближайшее время.</p>
 </div>
 <section class="form_back_speak">
-<div class="form">
-    <form method="POST">
-    {% csrf_token %}
-        <table>
-        {{ form_q.as_table }}
-        <tr>
-        <th></th>
-        <td><input type="submit"></td>
-        </tr>
-        </table>
-    </form>
-</div>
+{% if form_q %}
+    <div class="form">
+        <form method="POST">
+        {% csrf_token %}
+            <table>
+            {{ form_q.as_table }}
+            <tr>
+            <th></th>
+            <td><input type="submit"></td>
+            </tr>
+            </table>
+        </form>
+    </div>
+{% else %}
+    <p>Спасибо. Наши операторы ответят вам в ближайшее время</p>
+{% endif %}
 </section>
 {% endblock body %}

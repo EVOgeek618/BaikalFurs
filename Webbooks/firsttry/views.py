@@ -1,9 +1,10 @@
 from django.shortcuts import render, redirect
 from .forms import Search, Back, Add_Forum_Theme
-from .models import Photo, Ask, Otchets, URL_Video
+from .models import Photo, Ask, Otchets, URL_Video, Forum_Topic, Comment
 import datetime
 from django.http import HttpResponse, HttpResponseRedirect
 from django.core.mail import send_mail, BadHeaderError
+import time
 def home(request):
     search = Search()
     list_theme={'1':"Продажа товара", '2': "Сотрудничество", '3':"Охота и лесное хозяйство", '4':'Прочее'}
@@ -24,9 +25,8 @@ def home(request):
                 #send_mail(f'{theme} от {email}', quetion,["stevenorton2610@gmail.com"], ["stevenorton2610@gmail.com"])
             except BadHeaderError:
                 return HttpResponse('Ошибка в теме письма.')
-            return redirect('/forum')
-    else:
-        return render(request,"home.html", context={"form_search":search,"form_q":que,"lis":phs})
+            que = None
+    return render(request,"home.html", context={"form_search":search,"form_q":que,"lis":phs})
 
 def faq(request):
     search = Search()
@@ -40,17 +40,16 @@ def faq(request):
             quetion = ret.cleaned_data['quetion']
             Ask.objects.create(name=theme, email=email, quetion=quetion, date=datetime.datetime.now())
             try:
-                pass
+                que = None
                 #send_mail(f'{theme} от {email}', quetion,["stevenorton2610@gmail.com"], ["stevenorton2610@gmail.com"])
             except BadHeaderError:
                 return HttpResponse('Ошибка в теме письма.')
-            return redirect('/forum')
-    else:
-        return render(request, "FAQ.html", context={"form_search": search,"form_q":que})
+    return render(request, "FAQ.html", context={"form_search": search,"form_q":que})
 
 def forum(request):
     search = Search()
-    return render(request, "forum.html", context={"form_search": search})
+    topic = Forum_Topic.objects.all()
+    return render(request, "forum.html", context={"form_search": search, "topics":topic})
 
 def contacts(request):
     search = Search()
@@ -71,8 +70,8 @@ def photo(request):
 
 def otchet(request, name):
     search = Search()
-    phs = list(Photo.objects.filter(otchet=Otchets.objects.get(name=name)))
-    urlvideos = list(URL_Video.objects.filter(otchet=Otchets.objects.get(name=name)))
+    phs = list(Photo.objects.filter(otchet=Otchets.objects.get(id=name)))
+    urlvideos = list(URL_Video.objects.filter(otchet=Otchets.objects.get(id=name)))
     photos = []
     videos = []
     for i in phs:
@@ -81,7 +80,7 @@ def otchet(request, name):
         else:
             photos.append(i.dir_way)
     return render(request, "otchets.html", context={"form_search": search, "photos": photos, "videos": videos,
-                                                    "title":name, "text":Otchets.objects.get(name=name).text,
+                                                    "title":Otchets.objects.get(id=name).name, "text":Otchets.objects.get(id=name).text,
                                                     "urlvideos":urlvideos})
 
 def products(request):
@@ -90,4 +89,21 @@ def products(request):
 
 def add_forum_theme(request):
     add = Add_Forum_Theme()
+    if request.method == 'POST':
+        add = Add_Forum_Theme(request.POST)
+        list_theme = {"1": "Продукция охоты – предложения, качество, объёмы, цены",
+                     "2": "Охота, охотничьи путешествия, трофеи",
+                     "3": "Способы и орудия охоты",
+                     "4": "Актуальные правовые и организационно-экономические проблемы охотничьего хозяйства",
+                     "5": "Иркутский охотфак – поиск и общение сокурсников, выпускников, педагогов"}
+        if add.is_valid():
+            theme = list_theme[add.cleaned_data['theme']]
+            title = add.cleaned_data['title']
+            quetion = add.cleaned_data['quetion']
+            Forum_Topic.objects.create(title=title, theme=theme, date=datetime.datetime.now(), text=quetion)
+            add = None
+            redirect(f"/forum/{Forum_Topic.objects.last().id}")
     return render(request, "add_forum_theme.html", context={"form": add})
+def topic(request, id):
+    topic = Forum_Topic.objects.get(id=id)
+    return render(request, "topic.html", context={"topic": topic})
