@@ -1,5 +1,43 @@
 {% extends "base.html" %}
 {% block title%}Обсуждение "{{ topic.title }}"{% endblock title%}
 {% block body %}
+    <div class="topic">
+        <img class="ava" src="/static/image/ava.jpg">
+        <a href="{{ topic.id }}">
+            <div class="topic-theme">
+                <h4>{{ topic.title }}</h4>
+                <p>{{ topic.text }}</p>
+            </div>
+        </a>
+    </div>
 
+    {% for comment in comments %}
+        <div class="comment" id="{{ comment.id }}">
+                <div class="text-comment">
+                    <img class="com-ava" src="/static/image/ava.jpg">
+                    <h4>{{ comment.user }} <a href="{{ comment.id }}">#{{ comment.id }}</a></h4>
+                </div>
+                {% if comment.quetion %}
+                <div class="answer-text-comment">
+                    <div class="text-comment">
+                        <img class="com-ava" src="/static/image/ava.jpg">
+                        <h5>{{ comment.user }} <a href="{{ comment.id }}">#{{ comment.id }}</a></h5>
+                    </div>
+                    <p>{{ comment.text }}</p>
+                </div>
+                {% endif %}
+                <p>{{ comment.text | linebreaksbr }}</p>
+        </div>
+    {% endfor %}
+
+    <form method="POST" class="write-comment">
+        {% csrf_token %}
+            <table>
+            {{ form_comment.as_table }}
+            <tr>
+            <th></th>
+            <td><input type="submit"></td>
+            </tr>
+            </table>
+    </form>
 {% endblock body %}

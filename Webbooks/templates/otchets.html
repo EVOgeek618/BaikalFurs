@@ -47,7 +47,7 @@
     {% endfor %}!-->
     <h1>{{ title }}</h1>
     {% autoescape off %}
-    <p class="otchet-prew">{{ text }}</p>
+    <p class="otchet-prew">{{ text | linebreaksbr }}</p>
     {% endautoescape %}
     {% if photos %}
     <h3>Фотографии</h3>

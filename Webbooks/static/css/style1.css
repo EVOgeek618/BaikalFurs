@@ -44,6 +44,7 @@ body {
     font-size: 16px;
     width: 15vw;
     border-radius: 6px;
+    content: "Временно не работает";
 }
 
 input[type="submit"] {
@@ -688,4 +689,90 @@ h3{
 }
 .title_add{
     margin: 30px 0 0 20px;
+}
+
+.topic{
+    margin: 30px 10% 30px 3%;
+    background-color: #7ff37f;
+    padding: 40px 2%;
+    display: block;
+    border-radius: 3vh;
+}
+.ava{
+    float: left;
+    margin-right: 2%;
+    border-radius: 50%;
+}
+.topic > img,
+.topic > div{
+    max-height: 15vh;
+    display: inline-block;
+}
+.topic p{
+    padding: 20px 0 0 2vw;
+    color: #000000;
+}
+.topic h4{
+    font-size: 2vw;
+}
+.write-comment label{
+    display: none;
+}
+.write-comment textarea{
+    width: 100%;
+    resize: none;
+    font-size: 1.5vw;
+    padding: 1em;
+}
+.write-comment td{
+    text-align: right;
+}
+.write-comment td input[type="submit"]{
+    margin-left: 93%;
+    width: 8vw;
+    height: 3vw;
+    font-size: 1.2vw;
+}
+.write-comment table{
+    margin: 30px 0 30px 10vw;
+    width: 68vw;
+}
+.comment{
+    width: 70vw;
+    border: 3px solid #005300;
+    border-radius: 3px;
+    margin-left: 10vw;
+    margin-bottom: 3vh;
+}
+.com-ava{
+    width: 40px;
+    margin-top: 1vh;
+    border-radius: 3px;
+    margin-left: 2vw;
+}
+.text-comment > img,
+.text-comment > h4{
+    max-height: 15vh;
+    display: inline-block;
+    float: left;
+}
+.text-comment > h4{
+    margin-top: 2vh;
+    margin-left: 0.7vw;
+}
+.text-comment{
+    margin-top: 1vh;
+    height: fit-content;
+}
+
+.comment p{
+    clear: left;
+    margin-inline: 2vw;
+    padding-top: 20px;
+    padding-left: 3vw;
+    padding-bottom: 30px;
+    border-top: 2px solid #3d7826;
+}
+.text-comment h4 a{
+    color: #6f6f6f;
 }

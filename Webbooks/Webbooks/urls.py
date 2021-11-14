@@ -22,6 +22,7 @@ urlpatterns = [
     path('contacts/', views.contacts),
     path('forum/', views.forum),
     path('forum/add/', views.add_forum_theme),
+    path('forum/theme/<str:theme>', views.forum),
     path('forum/<int:id>/', views.topic),
     path('photoarchive/', views.photo),
     path('products/', views.products),

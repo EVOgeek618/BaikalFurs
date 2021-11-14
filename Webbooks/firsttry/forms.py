@@ -1,7 +1,7 @@
 from django import forms
 
 class Search(forms.Form):
-    Поиск = forms.CharField(max_length=40)
+    Поиск = forms.CharField(max_length=40, disabled=True, widget=forms.TextInput(attrs={'placeholder': 'Временно не работает'}))
 
 class Back(forms.Form):
     theme = forms.ChoiceField(choices=((1, "Продажа товара"),
@@ -23,4 +23,5 @@ class Add_Forum_Theme(forms.Form):
                                         label="Тема форума:")
     quetion = forms.CharField(widget=forms.Textarea, label="Описание обсуждения: ")
 
-
+class Commeent(forms.Form):
+    text = forms.CharField(widget=forms.Textarea)

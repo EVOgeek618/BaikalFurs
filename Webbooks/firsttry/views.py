@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .forms import Search, Back, Add_Forum_Theme
+from .forms import Search, Back, Add_Forum_Theme, Commeent
 from .models import Photo, Ask, Otchets, URL_Video, Forum_Topic, Comment
 import datetime
 from django.http import HttpResponse, HttpResponseRedirect
@@ -46,10 +46,21 @@ def faq(request):
                 return HttpResponse('Ошибка в теме письма.')
     return render(request, "FAQ.html", context={"form_search": search,"form_q":que})
 
-def forum(request):
+def forum(request,theme=None):
     search = Search()
+    list_theme = {"1": "Продукция охоты – предложения, качество, объёмы, цены",
+                  "2": "Охота, охотничьи путешествия, трофеи",
+                  "3": "Способы и орудия охоты",
+                  "4": "Актуальные правовые и организационно-экономические проблемы охотничьего хозяйства",
+                  "5": "Иркутский охотфак – поиск и общение сокурсников, выпускников, педагогов"}
     topic = Forum_Topic.objects.all()
-    return render(request, "forum.html", context={"form_search": search, "topics":topic})
+    if theme in list_theme.keys():
+        topic = Forum_Topic.objects.filter(theme=list_theme[theme]).all()
+        return render(request, "forum.html", context={"form_search": search, "topics": topic})
+    elif not theme:
+        return render(request, "forum.html", context={"form_search": search, "topics": topic})
+    else:
+        return redirect(f"/forum")
 
 def contacts(request):
     search = Search()
@@ -89,6 +100,7 @@ def products(request):
 
 def add_forum_theme(request):
     add = Add_Forum_Theme()
+    search = Search()
     if request.method == 'POST':
         add = Add_Forum_Theme(request.POST)
         list_theme = {"1": "Продукция охоты – предложения, качество, объёмы, цены",
@@ -100,10 +112,18 @@ def add_forum_theme(request):
             theme = list_theme[add.cleaned_data['theme']]
             title = add.cleaned_data['title']
             quetion = add.cleaned_data['quetion']
-            Forum_Topic.objects.create(title=title, theme=theme, date=datetime.datetime.now(), text=quetion)
-            add = None
-            redirect(f"/forum/{Forum_Topic.objects.last().id}")
-    return render(request, "add_forum_theme.html", context={"form": add})
+            Forum_Topic.objects.create(title=title, theme=theme, start_data=datetime.datetime.now(), text=quetion)
+            return redirect(f"/forum/{Forum_Topic.objects.last().id}")
+    return render(request, "add_forum_theme.html", context={"form": add, "form_search": search})
 def topic(request, id):
     topic = Forum_Topic.objects.get(id=id)
-    return render(request, "topic.html", context={"topic": topic})
+    search = Search()
+    com = Commeent()
+    if request.method == 'POST':
+        com = Commeent(request.POST)
+        if com.is_valid():
+            text = com.cleaned_data['text']
+            new_id = Comment.objects.create(topic=topic, data=datetime.datetime.now(), text=text).id
+            return redirect(f"/forum/{id}#{new_id}")
+    comments = list(Comment.objects.filter(topic=topic))
+    return render(request, "topic.html", context={"topic": topic, "form_search": search, "form_comment": com, "comments":comments})

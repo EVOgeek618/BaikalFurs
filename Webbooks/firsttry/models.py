@@ -34,8 +34,8 @@ class Forum_Topic(models.Model):
         return self.title
 
 class Comment(models.Model):
-    topic = models.ForeignKey(Otchets, on_delete=models.CASCADE, verbose_name="Принадлежность к обсуждению")
+    topic = models.ForeignKey(Forum_Topic, on_delete=models.CASCADE, verbose_name="Принадлежность к обсуждению")
     data = models.DateTimeField(verbose_name="Дата создания обсуждения")
     user = models.CharField(max_length=30, verbose_name="Автор комментария", default="Анонимный охотник")
     text = models.TextField(verbose_name="Текст комментария")
-    quetion = models.IntegerField(verbose_name="Номер комментария-вопроса")
+    quetion = models.IntegerField(verbose_name="Номер комментария-вопроса", blank=True, null=True)
