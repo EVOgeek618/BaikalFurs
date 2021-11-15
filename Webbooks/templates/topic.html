@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% block title%}Обсуждение "{{ topic.title }}"{% endblock title%}
+{% block body %}
+    <div class="topic">
+        <img class="ava" src="/static/image/ava.jpg">
+        <a href="{{ topic.id }}">
+            <div class="topic-theme">
+                <h4>{{ topic.title | capfirst }}</h4>
+                <p>{{ topic.text | capfirst }}</p>
+                <br>
+                <data>{{ topic.start_data }}</data>
+            </div>
+        </a>
+    </div>
+
+    {% for comment in comments %}
+        <div class="comment" id="{{ comment.0.id }}">
+                <div class="text-comment">
+                    <img class="com-ava" src="/static/image/ava.jpg">
+                    <a href="#ans" class="answer" title="Ответить"
+                       onclick='document.getElementById("id_parent").value = "{{ comment.0.id }}";
+                               document.getElementById("ans").innerText = "Ответить на #{{ comment.0.id }}";
+                               document.getElementById("answ").style.display = "block"'>reply</a>
+                    <h4>{{ comment.0.user }} <a href="#{{ comment.0.id }}">#{{ comment.0.id }}</a>
+                        <data>{{ comment.0.data }}</data></h4>
+                </div>
+                {% if comment.0.quetion %}
+                <div class="answer-text-comment">
+                    <div class="text-comment">
+                        <img class="com-ava" src="/static/image/ava.jpg">
+                        <h5>{{ comment.1.user }} <a href="#{{ comment.1.id }}">
+                            #{{ comment.1.id }}</a> <data>{{ comment.1.data }}</data></h5>
+                    </div>
+                    <p>{{ comment.1.text | linebreaksbr| capfirst }}</p>
+                </div>
+                {% endif %}
+                <p>{{ comment.0.text | linebreaksbr | capfirst }}</p>
+        </div>
+    {% endfor %}
+    <div id="answ"><span id="ans"></span><a onclick='document.getElementById("answ").style.display = "none";
+                                                        document.getElementById("id_parent").value = "0"'>
+                                                        Отменить</a></div>
+    <form method="POST" class="write-comment" id="form">
+        {% csrf_token %}
+            <table>
+            {{ form_comment.as_table }}
+            <tr>
+            <th></th>
+            <td><input type="submit"></td>
+            </tr>
+            </table>
+    </form>
+{% endblock body %}

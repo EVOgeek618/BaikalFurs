@@ -23,3 +23,19 @@ class Ask(models.Model):
     date = models.DateTimeField(verbose_name="Дата загрузки")
     email = models.EmailField(verbose_name="Почта отправителя")
     quetion = models.TextField(verbose_name="Вопрос")
+
+class Forum_Topic(models.Model):
+    title = models.CharField(max_length=100, verbose_name="Тема обсуждения")
+    theme = models.CharField(max_length=100, verbose_name="Принадлежность к теме форума")
+    start_data = models.DateTimeField(verbose_name="Дата создания обсуждения")
+    user = models.CharField(max_length=30, verbose_name="Автор топика", default="Анонимный охотник")
+    text = models.TextField(verbose_name="Разъяснение обсуждения")
+    def __str__(self):
+        return self.title
+
+class Comment(models.Model):
+    topic = models.ForeignKey(Forum_Topic, on_delete=models.CASCADE, verbose_name="Принадлежность к обсуждению")
+    data = models.DateTimeField(verbose_name="Дата создания обсуждения")
+    user = models.CharField(max_length=30, verbose_name="Автор комментария", default="Анонимный охотник")
+    text = models.TextField(verbose_name="Текст комментария")
+    quetion = models.IntegerField(verbose_name="Номер комментария-вопроса", blank=True, null=True)

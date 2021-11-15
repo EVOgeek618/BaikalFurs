@@ -1,2 +1,1 @@
-web: gunicorn myapp:app --log-file=-
-python collectstatic --noinput
+web: gunicorn app:app --log-file=-

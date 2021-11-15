@@ -1,14 +1,15 @@
 from django.shortcuts import render, redirect
-from .forms import Search, Back
-from .models import Photo, Ask, Otchets, URL_Video
+from .forms import Search, Back, Add_Forum_Theme, Commeent
+from .models import Photo, Ask, Otchets, URL_Video, Forum_Topic, Comment
 import datetime
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponse, HttpResponseRedirect, HttpResponseNotFound
 from django.core.mail import send_mail, BadHeaderError
+import time
 def home(request):
     search = Search()
     list_theme={'1':"Продажа товара", '2': "Сотрудничество", '3':"Охота и лесное хозяйство", '4':'Прочее'}
     que = Back()
-    lis = list(Otchets.objects.order_by("date", "name").all())[:3]
+    lis = list(Otchets.objects.order_by("-date", "name").all())[:3]
     phs = []
     for i in lis:
         phs.append([i, list(Photo.objects.filter(otchet=i, is_video=False))[0].dir_way])
@@ -24,9 +25,8 @@ def home(request):
                 #send_mail(f'{theme} от {email}', quetion,["stevenorton2610@gmail.com"], ["stevenorton2610@gmail.com"])
             except BadHeaderError:
                 return HttpResponse('Ошибка в теме письма.')
-            return redirect('/forum')
-    else:
-        return render(request,"home.html", context={"form_search":search,"form_q":que,"lis":phs})
+            que = None
+    return render(request,"home.html", context={"form_search":search,"form_q":que,"lis":phs})
 
 def faq(request):
     search = Search()
@@ -40,17 +40,27 @@ def faq(request):
             quetion = ret.cleaned_data['quetion']
             Ask.objects.create(name=theme, email=email, quetion=quetion, date=datetime.datetime.now())
             try:
-                pass
+                que = None
                 #send_mail(f'{theme} от {email}', quetion,["stevenorton2610@gmail.com"], ["stevenorton2610@gmail.com"])
             except BadHeaderError:
                 return HttpResponse('Ошибка в теме письма.')
-            return redirect('/forum')
-    else:
-        return render(request, "FAQ.html", context={"form_search": search,"form_q":que})
+    return render(request, "FAQ.html", context={"form_search": search,"form_q":que})
 
-def forum(request):
+def forum(request,theme=None):
     search = Search()
-    return render(request, "forum.html", context={"form_search": search})
+    list_theme = {"1": "Продукция охоты – предложения, качество, объёмы, цены",
+                  "2": "Охота, охотничьи путешествия, трофеи",
+                  "3": "Способы и орудия охоты",
+                  "4": "Актуальные правовые и организационно-экономические проблемы охотничьего хозяйства",
+                  "5": "Иркутский охотфак – поиск и общение сокурсников, выпускников, педагогов"}
+    topic = Forum_Topic.objects.order_by("-start_data").all()
+    if theme in list_theme.keys():
+        topic = Forum_Topic.objects.filter(theme=list_theme[theme]).all()
+        return render(request, "forum.html", context={"form_search": search, "topics": topic})
+    elif not theme:
+        return render(request, "forum.html", context={"form_search": search, "topics": topic})
+    else:
+        return redirect(f"/forum")
 
 def contacts(request):
     search = Search()
@@ -58,7 +68,7 @@ def contacts(request):
 
 def photo(request):
     search = Search()
-    lis = list(Otchets.objects.order_by("date","name").all())
+    lis = list(Otchets.objects.order_by("-date","name").all())
     phs=[]
     for i in lis:
         phs.append([i,list(Photo.objects.filter(otchet=i,is_video=False))[0].dir_way])
@@ -71,8 +81,8 @@ def photo(request):
 
 def otchet(request, name):
     search = Search()
-    phs = list(Photo.objects.filter(otchet=Otchets.objects.get(name=name)))
-    urlvideos = list(URL_Video.objects.filter(otchet=Otchets.objects.get(name=name)))
+    phs = list(Photo.objects.filter(otchet=Otchets.objects.get(id=name)))
+    urlvideos = list(URL_Video.objects.filter(otchet=Otchets.objects.get(id=name)))
     photos = []
     videos = []
     for i in phs:
@@ -81,9 +91,49 @@ def otchet(request, name):
         else:
             photos.append(i.dir_way)
     return render(request, "otchets.html", context={"form_search": search, "photos": photos, "videos": videos,
-                                                    "title":name, "text":Otchets.objects.get(name=name).text,
+                                                    "title":Otchets.objects.get(id=name).name, "text":Otchets.objects.get(id=name).text,
                                                     "urlvideos":urlvideos})
 
 def products(request):
     search = Search()
     return render(request, "products.html", context={"form_search": search})
+
+def add_forum_theme(request):
+    add = Add_Forum_Theme()
+    search = Search()
+    if request.method == 'POST':
+        add = Add_Forum_Theme(request.POST)
+        list_theme = {"1": "Продукция охоты – предложения, качество, объёмы, цены",
+                     "2": "Охота, охотничьи путешествия, трофеи",
+                     "3": "Способы и орудия охоты",
+                     "4": "Актуальные правовые и организационно-экономические проблемы охотничьего хозяйства",
+                     "5": "Иркутский охотфак – поиск и общение сокурсников, выпускников, педагогов"}
+        if add.is_valid():
+            theme = list_theme[add.cleaned_data['theme']]
+            title = add.cleaned_data['title']
+            quetion = add.cleaned_data['quetion']
+            new_id = Forum_Topic.objects.create(title=title, theme=theme, start_data=datetime.datetime.now(), text=quetion).id
+            return redirect(f"/forum/{new_id}")
+    return render(request, "add_forum_theme.html", context={"form": add, "form_search": search})
+def topic(request, id):
+    try:
+        topic = Forum_Topic.objects.get(id=id)
+        search = Search()
+        com = Commeent()
+        if request.method == 'POST':
+            com = Commeent(request.POST)
+            if com.is_valid():
+                text = com.cleaned_data['text']
+                parent = com.cleaned_data['parent']
+                new_id = Comment.objects.create(topic=topic, data=datetime.datetime.now(), text=text,
+                                                quetion=parent if parent>0 else None).id
+                return redirect(f"/forum/{id}#{new_id}")
+        comments = list(Comment.objects.filter(topic=topic))
+        for i,el in enumerate(comments):
+            if el.quetion:
+                comments[i]=[el,Comment.objects.get(id=el.quetion)]
+            else:
+                comments[i] = [el]
+        return render(request, "topic.html", context={"topic": topic, "form_search": search, "form_comment": com, "comments":comments})
+    except:
+        return HttpResponseNotFound()

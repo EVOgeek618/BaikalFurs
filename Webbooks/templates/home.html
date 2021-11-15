@@ -79,19 +79,19 @@
         <div class="column">
         <div class="theme-list forum">
             <div class="theme forum">
-                <p>Продукция охоты – предложения, качество, объёмы, цены</p>
+                <p><a href="/forum/theme/1">Продукция охоты – предложения, качество, объёмы, цены</a></p>
             </div>
             <div class="theme forum">
-                <p>Охота, охотничьи путешествия, трофеи</p>
+                <p><a href="/forum/theme/2">Охота, охотничьи путешествия, трофеи</a></p>
             </div>
             <div class="theme forum">
-                <p>Способы и орудия охоты</p>
+                <p><a href="/forum/theme/3">Способы и орудия охоты</a></p>
             </div>
             <div class="theme forum">
-                <p>Актуальные правовые и организационно-экономические проблемы охотничьего хозяйства</p>
+                <p><a href="/forum/theme/4">Актуальные правовые и организационно-экономические проблемы охотничьего хозяйства</a></p>
             </div>
             <div class="theme forum">
-                <p>Иркутский охотфак – поиск и общение сокурсников, выпускников,педагогов</p>
+                <p><a href="/forum/theme/5">Иркутский охотфак – поиск и общение сокурсников, выпускников, педагогов</a></p>
             </div>
         </div>
         </div>
@@ -108,8 +108,8 @@
                     <img src="/{{ i.1 }}">
                 </div>
                 <div class="info">
-                    <p class="date">{{ i.0.date }}</p>
                     <p class="name">{{ i.0.name }}</p>
+                    <p class="date">{{ i.0.date }}</p>
                 </div>
                 </a>
             </div>
@@ -127,6 +127,7 @@
     </div>
     <div class="column">
     <div class="form">
+        {% if form_q %}
         <form method="POST">
         {% csrf_token %}
             <table>
@@ -136,8 +137,10 @@
             <td><input type="submit"></td>
             </tr>
             </table>
-
         </form>
+        {% else %}
+            <p>Спасибо. Наши операторы ответят вам в ближайшее время</p>
+        {% endif %}
     </div>
     </div>
     </div>

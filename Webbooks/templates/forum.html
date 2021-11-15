@@ -2,36 +2,37 @@
 {% block title%}Форум{% endblock title%}
 {% block body %}
 <section class="forum-page">
-<!--
+<h1>Форум</h1>
 <div class="main-forums-theme-list">
-    <h1>Форум</h1>
-    <div class="forum-theme">
-        <p>Тема форума №1</p>
+    <div class="make-forum-theme">
+        <a href="add">
+            <span>Добавить новое обсуждение</span>
+            <span>add</span>
+        </a>
     </div>
-    <div class="forum-theme">
-        <p>Тема форума №2</p>
-    </div>
-    <div class="forum-theme">
-        <p>Тема форума №3</p>
-    </div>
-    <div class="forum-theme">
-        <p>Тема форума №4</p>
-    </div>
-    <div class="forum-theme">
-        <p>Тема форума №5</p>
-    </div>
+    {% for topic in topics %}
+        <div class="forum-theme">
+            <img class="ava" src="/static/image/ava.jpg">
+            <a href="/forum/{{ topic.id }}">
+                <div class="title-forum-theme">
+                    <h4>{{ topic.title }}</h4>
+                    <p>{{ topic.text }}</p>
+                    <br>
+                    <data>{{ topic.start_data }}</data>
+                </div>
+            </a>
+        </div>
+    {% endfor %}
 </div>
 <div class="forums-list">
     <h4>Темы форума</h4>
     <ul>
-        <li><a href="#">Охота</a></li>
-        <li><a href="#">Лесоводство</a></li>
-        <li><a href="#">Рыбалка</a></li>
-        <li><a href="#">Оружие</a></li>
-        <li><a href="#">Снаряжение</a></li>
+        <li><a href="/forum/theme/1">Продукция охоты – предложения, качество, объёмы, цены</a></li>
+        <li><a href="/forum/theme/2">Охота, охотничьи путешествия, трофеи</a></li>
+        <li><a href="/forum/theme/3">Способы и орудия охоты</a></li>
+        <li><a href="/forum/theme/4">Актуальные правовые и организационно-экономические проблемы охотничьего хозяйства</a></li>
+        <li><a href="/forum/theme/5">Иркутский охотфак – поиск и общение сокурсников, выпускников, педагогов</a></li>
     </ul>
 </div>
-!-->
-Страница в разработке
 </section>
 {% endblock body %}
