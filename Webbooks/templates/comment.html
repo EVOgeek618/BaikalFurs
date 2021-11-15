@@ -1,12 +1,12 @@
 {% extends "base.html" %}
 {% block title%}Обсуждение "{{ topic.title }}"{% endblock title%}
 {% block body %}
-    <div class="topic">
+    <div class="comment main">
         <img class="ava" src="/static/image/ava.jpg">
         <a href="{{ topic.id }}">
             <div class="topic-theme">
-                <h4>{{ topic.title | capfirst }}</h4>
-                <p>{{ topic.text | capfirst }}</p>
+                <h4>{{ topic.title }}</h4>
+                <p>{{ topic.text }}</p>
                 <br>
                 <data>{{ topic.start_data }}</data>
             </div>
@@ -21,20 +21,20 @@
                        onclick='document.getElementById("id_parent").value = "{{ comment.0.id }}";
                                document.getElementById("ans").innerText = "Ответить на #{{ comment.0.id }}";
                                document.getElementById("answ").style.display = "block"'>reply</a>
-                    <h4>{{ comment.0.user }} <a href="#{{ comment.0.id }}">#{{ comment.0.id }}</a>
+                    <h4>{{ comment.0.user }} <a href="{{ comment.0.id }}">#{{ comment.0.id }}</a>
                         <data>{{ comment.0.data }}</data></h4>
                 </div>
                 {% if comment.0.quetion %}
                 <div class="answer-text-comment">
                     <div class="text-comment">
                         <img class="com-ava" src="/static/image/ava.jpg">
-                        <h5>{{ comment.1.user }} <a href="#{{ comment.1.id }}">
+                        <h5>{{ comment.1.user }} <a href="{{ comment.1.id }}">
                             #{{ comment.1.id }}</a> <data>{{ comment.1.data }}</data></h5>
                     </div>
-                    <p>{{ comment.1.text | linebreaksbr| capfirst }}</p>
+                    <p>{{ comment.1.text | linebreaksbr }}</p>
                 </div>
                 {% endif %}
-                <p>{{ comment.0.text | linebreaksbr | capfirst }}</p>
+                <p>{{ comment.0.text | linebreaksbr }}</p>
         </div>
     {% endfor %}
     <div id="answ"><span id="ans"></span><a onclick='document.getElementById("answ").style.display = "none";

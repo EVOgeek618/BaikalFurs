@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from .forms import Search, Back, Add_Forum_Theme, Commeent
 from .models import Photo, Ask, Otchets, URL_Video, Forum_Topic, Comment
 import datetime
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponse, HttpResponseRedirect, HttpResponseNotFound
 from django.core.mail import send_mail, BadHeaderError
 import time
 def home(request):
@@ -53,7 +53,7 @@ def forum(request,theme=None):
                   "3": "Способы и орудия охоты",
                   "4": "Актуальные правовые и организационно-экономические проблемы охотничьего хозяйства",
                   "5": "Иркутский охотфак – поиск и общение сокурсников, выпускников, педагогов"}
-    topic = Forum_Topic.objects.all()
+    topic = Forum_Topic.objects.order_by("-start_data").all()
     if theme in list_theme.keys():
         topic = Forum_Topic.objects.filter(theme=list_theme[theme]).all()
         return render(request, "forum.html", context={"form_search": search, "topics": topic})
@@ -112,18 +112,28 @@ def add_forum_theme(request):
             theme = list_theme[add.cleaned_data['theme']]
             title = add.cleaned_data['title']
             quetion = add.cleaned_data['quetion']
-            Forum_Topic.objects.create(title=title, theme=theme, start_data=datetime.datetime.now(), text=quetion)
-            return redirect(f"/forum/{Forum_Topic.objects.last().id}")
+            new_id = Forum_Topic.objects.create(title=title, theme=theme, start_data=datetime.datetime.now(), text=quetion).id
+            return redirect(f"/forum/{new_id}")
     return render(request, "add_forum_theme.html", context={"form": add, "form_search": search})
 def topic(request, id):
-    topic = Forum_Topic.objects.get(id=id)
-    search = Search()
-    com = Commeent()
-    if request.method == 'POST':
-        com = Commeent(request.POST)
-        if com.is_valid():
-            text = com.cleaned_data['text']
-            new_id = Comment.objects.create(topic=topic, data=datetime.datetime.now(), text=text).id
-            return redirect(f"/forum/{id}#{new_id}")
-    comments = list(Comment.objects.filter(topic=topic))
-    return render(request, "topic.html", context={"topic": topic, "form_search": search, "form_comment": com, "comments":comments})
+    try:
+        topic = Forum_Topic.objects.get(id=id)
+        search = Search()
+        com = Commeent()
+        if request.method == 'POST':
+            com = Commeent(request.POST)
+            if com.is_valid():
+                text = com.cleaned_data['text']
+                parent = com.cleaned_data['parent']
+                new_id = Comment.objects.create(topic=topic, data=datetime.datetime.now(), text=text,
+                                                quetion=parent if parent>0 else None).id
+                return redirect(f"/forum/{id}#{new_id}")
+        comments = list(Comment.objects.filter(topic=topic))
+        for i,el in enumerate(comments):
+            if el.quetion:
+                comments[i]=[el,Comment.objects.get(id=el.quetion)]
+            else:
+                comments[i] = [el]
+        return render(request, "topic.html", context={"topic": topic, "form_search": search, "form_comment": com, "comments":comments})
+    except:
+        return HttpResponseNotFound()

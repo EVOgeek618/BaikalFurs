@@ -24,4 +24,5 @@ class Add_Forum_Theme(forms.Form):
     quetion = forms.CharField(widget=forms.Textarea, label="Описание обсуждения: ")
 
 class Commeent(forms.Form):
+    parent = forms.IntegerField(initial=0)
     text = forms.CharField(widget=forms.Textarea)
