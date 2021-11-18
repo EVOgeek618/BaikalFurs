@@ -8,7 +8,7 @@ class AdminFile(admin.ModelAdmin):
     list_display = ("name", "dir_way", "otchet", "is_video")
 @admin.register(Ask)
 class AdminAsk(admin.ModelAdmin):
-    list_display = ("name", "email", "date", "quetion")
+    list_display = ("name", "user", "email", "date", "quetion")
 @admin.register(URL_Video)
 class AdminOtchet(admin.ModelAdmin):
     list_display = ("name", "dir_way", "otchet")

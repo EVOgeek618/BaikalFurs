@@ -9,6 +9,7 @@ class Back(forms.Form):
                                        (3, "Охота и охотьничье хозяйство"),
                                        (4,"Прочее")),
                                         label="Тема вопросов:")
+    name = forms.CharField(max_length=50, label="Ваше имя:", empty_value='')
     email = forms.EmailField(label="Эл. почта:")
     quetion = forms.CharField(widget=forms.Textarea, label="Вопрос:")
 

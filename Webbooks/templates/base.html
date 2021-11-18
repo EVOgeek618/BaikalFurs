@@ -3,14 +3,15 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>{% block title %}Заголовок{% endblock title %}</title>
-    <link rel="stylesheet" href="/static/css/style4.css">
+    <title>Байкал-Фурс {% block title %}Заголовок{% endblock title %}</title>
+    <link rel="stylesheet" href="/static/css/style2.css">
+    <link rel="icon" href="/static/image/logo.png">
 </head>
 <body>
 <div class="head">
-    <!--<div class="logo">
-    <a href="/"><img src={% static "image/logo.jpeg" %}></a>
-    </div>!-->
+    <div class="logo">
+    <a href="/"><img src={% static "image/logo.png" %}></a>
+    </div>
     <div class="search">
         <form method="POST" novalidate>
         {% csrf_token %}
@@ -49,6 +50,7 @@
                 + 7 3952 55 00 65<br><br></div>
                 <a href="https://api.whatsapp.com/send?phone=<79087779465>"><img src={% static "image/wapp.png" %}></a>
                 <a href="https://tlgg.ru/dnbond"><img src="/static/image/tel.png"></a>
+                <a href="https://viber.click/79087779465"><img src="/static/image/viber.png"></a>
             </div>
         </div>
         </div>

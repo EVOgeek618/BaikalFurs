@@ -3,14 +3,32 @@
   font-style: normal;
   src: url(https://fonts.gstatic.com/s/materialicons/v47/flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2) format('woff2');
 }
+@font-face {
+font-family: "Rubik-Light";
+src: url("/static/fonts/Rubik-Light.ttf");
+font-style: normal;
+font-weight: normal;
+}
+@font-face {
+font-family: "Rubik-Bold";
+src: url("/static/fonts/Rubik-Bold.ttf");
+font-style: normal;
+font-weight: normal;
+}
 body a{
     color:black;
     text-decoration: none;
 }
 .head {
     width: 100%;
+    height: 4vw;
     padding: 10px 0px 10px 0px;
-    background: linear-gradient(to right, #05aa15, rgba(30, 189, 13, 0.77));
+    background-color: rgba(61, 120, 38, 1);
+}
+.head.home{
+    background-color: rgba(61, 120, 38, 0.8);
+    position: absolute;
+    z-index: 1;
 }
 
 .head > div {
@@ -20,41 +38,45 @@ body a{
 body {
     margin: 0;
     padding: 0;
-    font-family: Tahoma;
+    font-family: Rubik-Light;
     z-index: 5;
 }
 
 .main_list {
-    margin: 15px 0px 20px 3%;
+    margin: 1.1vw 0px 20px 0px;
     width: fit-content;
+    float: right;
+    text-align: center;
+    width: 73.3vw;
 }
 .main_list span:hover a{
     color:#d0e55a;
 }
 .search .field {
     float: left;
-    margin: 10px 20px 10px 0px;
+    margin: 0px 1vw 10px 0px;
 }
 .search {
     float: right;
-    margin: 0.3vw 3vw 0px 0px;
+    margin-right: 2vw;
+    margin-top: 0.8vw;
 }
 .search input[type="text"] {
-    padding: 5px;
-    font-size: 16px;
-    width: 15vw;
+    padding: 0.3vw;
+    font-size: 1.1vw;
+    width: 10vw;
     border-radius: 6px;
-    content: "Временно не работает";
 }
 
 input[type="submit"] {
-    margin-top: 14px;
+    margin-top: 2px;
     color: white;
     background-color: darkgreen;
-    padding: 3px 10px;
+    padding: 0.2vw 0.6vw;
     border: 1px solid yellow;
     border-radius: 3px;
     content: "Поиск";
+    font-size: 1.1vw;
 }
 
 .search label {
@@ -62,9 +84,9 @@ input[type="submit"] {
 }
 
 .main_list span {
-    margin-inline: 1.4vw;
-    font-size: 1.4vw;
-    font-family: Tahoma;
+    margin-inline: 0.8vw;
+    font-size: 1.3vw;
+    font-family: Rubik-Bold;
 }
 
 .main_list a:link,
@@ -90,7 +112,7 @@ footer .copyright {
     text-align: center;
 }
 .columns.c2 {
-    font-family: Tahoma;
+    font-family: Rubik-Light;
     margin-bottom: 20px;
 }
 .columns.c2 .column{
@@ -117,14 +139,14 @@ footer .column{
     padding-inline: 0;
 }
 footer .column:first-child{
-    background-color: darkgreen;
+    background-color: #3d7826;
     padding-right: 3%;
 }
 footer .column:last-child .contact{
-    background-color: darkolivegreen;
+    background-color: #3d7826;
 }
 .columns.c3 {
-    font-family: Tahoma;
+    font-family: Rubik-Light;
     margin-bottom: 20px;
 }
 
@@ -174,13 +196,13 @@ footer .column:last-child .contact{
 }
 
 .photo-preview img {
-    max-width: 90%;
+    width: 90%;
     border-radius: 10px;
-    transition: max-width 0.3s ease;
+    transition: width 0.3s ease;
 }
 .photo-preview> a:hover img {
-    max-width: 95%;
-    transition: max-width 0.3s ease;
+    width: 95%;
+    transition: width 0.3s ease;
 }
 .columns {
     display: inline-block;
@@ -194,9 +216,8 @@ footer .column:last-child .contact{
 }
 
 .logo img {
-    padding-left: 50px;
-    margin-right: 50px;
-    width: 40px;
+    padding-left: 2vw;
+    width: 4vw;
 
 }
 
@@ -217,17 +238,18 @@ section{
 }
 .products,
 .video-arhiv{
-    background-color: rgba(74, 255, 74, 0.68);
+    background-color: #3d7826;
 }
 .poster{
     object-fit: cover;
     width: 100%;
-    max-height: 500px;
+    max-height: 550px;
+    z-index: 0;
 }
 h1{
     text-align: center;
     font-size: 40px;
-    font-family: Tahoma;
+    font-family: Rubik-Bold;
 }
 .con_info .home:before{
     content: "business";
@@ -283,7 +305,7 @@ h1{
     width: auto;
 }
 .image-product img{
-    width: 90%;
+    height: 25vw;
     position: absolute;
     margin: auto;
     left: 0;
@@ -308,8 +330,8 @@ h1{
 }
 .main-info .round div{
     width: 100%;
-    padding-top: 20%;
-    font-size: 550%;
+    padding-top: 25px;
+    font-size: 100px;
 }
 
 .main-info{
@@ -329,7 +351,7 @@ h1{
     margin-top: 15%;
 }
 .theme-list{
-    width: 100%;
+    width: 67%;
     margin-top: 5%;
 }
 
@@ -339,25 +361,32 @@ h1{
 
 }
 .theme{
-    margin-left: 5%;
+    margin-left: 20%;
     margin-bottom: 5px;
     padding-block: 2px;
     padding-left: 10px;
     border-radius: 7px;
-    background-color: #76f182;
-    width: 90%;
+    text-align: center;
+    width: 100%;
+    transition: all 0.5s ease;
+}
+.theme:hover{
+    font-size: 110%;
+    margin-left: 15%;
+    width: 110%;
+    transition: all 0.2s ease;
 }
 .theme.prod{
-    margin-left: 5%;
-    margin-bottom: 5px;
-    padding-block: 2px;
-    padding-left: 10px;
-    border-radius: 7px;
-    background-color: #2faf40;
-    width: 90%;
+    background-color: #fff;
 }
 .theme.prod:hover{
-    background-color: #038403;
+    background-color: #eee;
+}
+.theme.forum{
+    background-color: #3d7826;
+}
+.theme.forum:hover{
+    background-color: #366c22;
 }
 .main-forums-theme-list{
     width: 70%;

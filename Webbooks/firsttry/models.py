@@ -22,6 +22,7 @@ class Ask(models.Model):
     name = models.CharField(max_length=100, verbose_name="Тема вопроса")
     date = models.DateTimeField(verbose_name="Дата загрузки")
     email = models.EmailField(verbose_name="Почта отправителя")
+    user = models.CharField(max_length=50, verbose_name="Имя отправителя", null=True)
     quetion = models.TextField(verbose_name="Вопрос")
 
 class Forum_Topic(models.Model):

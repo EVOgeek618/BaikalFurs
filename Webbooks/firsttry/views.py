@@ -37,8 +37,9 @@ def faq(request):
         if ret.is_valid():
             theme = list_theme[ret.cleaned_data['theme']]
             email = ret.cleaned_data['email']
+            user = ret.cleaned_data['name']
             quetion = ret.cleaned_data['quetion']
-            Ask.objects.create(name=theme, email=email, quetion=quetion, date=datetime.datetime.now())
+            Ask.objects.create(name=theme, user=user, email=email, quetion=quetion, date=datetime.datetime.now())
             try:
                 que = None
                 #send_mail(f'{theme} от {email}', quetion,["stevenorton2610@gmail.com"], ["stevenorton2610@gmail.com"])
