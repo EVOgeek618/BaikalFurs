@@ -79,7 +79,7 @@ WSGI_APPLICATION = 'Webbooks.Webbooks.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'Webbooks/db.sqlite3',
+        'NAME': BASE_DIR / 'Webbooks.db.sqlite3',
     }
 }
 
