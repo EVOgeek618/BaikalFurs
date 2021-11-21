@@ -6,7 +6,7 @@
         <a href="{{ topic.id }}">
             <div class="topic-theme">
                 <h4>{{ topic.title | capfirst }}</h4>
-                <p>{{ topic.text | capfirst }}</p>
+                <p>{{ topic.text| linebreaks | capfirst }}</p>
                 <br>
                 <data>{{ topic.start_data }}</data>
             </div>

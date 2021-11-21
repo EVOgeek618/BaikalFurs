@@ -26,4 +26,5 @@ class Add_Forum_Theme(forms.Form):
 
 class Commeent(forms.Form):
     parent = forms.IntegerField(initial=0)
+    name = forms.CharField(max_length=50, label="Ваш ник")
     text = forms.CharField(widget=forms.Textarea)

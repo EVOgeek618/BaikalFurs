@@ -126,8 +126,9 @@ def topic(request, id):
             if com.is_valid():
                 text = com.cleaned_data['text']
                 parent = com.cleaned_data['parent']
+                name = com.cleaned_data['name']
                 new_id = Comment.objects.create(topic=topic, data=datetime.datetime.now(), text=text,
-                                                quetion=parent if parent>0 else None).id
+                                                quetion=parent if parent>0 else None, user=name).id
                 return redirect(f"/forum/{id}#{new_id}")
         comments = list(Comment.objects.filter(topic=topic))
         for i,el in enumerate(comments):

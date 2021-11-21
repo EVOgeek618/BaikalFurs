@@ -4,12 +4,21 @@
 <head>
     <meta charset="UTF-8">
     <title>Байкал-Фурс</title>
-    <link rel="stylesheet" href="/static/css/style2.css">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script>
+        $(window).scroll(function() {
+        if ($(window).scrollTop() < 250){
+            jQuery('.head').addClass("home");
+        }else{
+            jQuery('.head').removeClass("home");         }
+        });
+    </script>
 </head>
 <body>
 <div class="head home">
     <div class="logo">
-    <a href="/"><img src={% static "image/logo.png" %}></a>
+    <a href="/"><img src={% static "image/logog1.png" %}></a>
     </div>
     <div class="search">
         <form method="POST" novalidate>
@@ -29,14 +38,14 @@
     </div>
 </div><img class="poster" src="static/image/wel.jpg">
 <section class="welcome">
+    <h1>Уважаемые охотники и охотопользователи!</h1>
     <p class="info">
-        <h1>Уважаемые охотники и охотопользователи!</h1>
         Наша компания специализируется на закупке и экспорте продукции охотничьего хозяйства, а также мы окажем вам помощь в реализации пушнины и лекарственно-технического сырья животного и растительного происхождения на комиссионных условиях. В настоящее время мы готовы приобрести у вас струю (мускус) кабарги, промысловую пушнину, рога благородного оленя (марала, изюбря), чагу и желчные камни КРС. Требования по качеству и сортировке товаров, а также закупочные цены размещены в разделе <a href="/products">"Товары и услуги"</a>. Оплата за продукцию осуществляется в удобной для вас форме. Интересующие вас детали можно уточнить задав вопрос во вкладке <a href="/faq">"Вопрос-Ответ"</a> или по электронной почте, телефону, WhatApp, Telegram и Viber, указанных в разделе <a href="/contacts">"Контакты"</a>. Поскольку в нашей компании работают опытные специалисты охотничьего хозяйства, мы создали страницу <a href="/photoarchive">"Фото и видео"</a>, где размещаем собранные нами материалы о жизни дикой живой природы Сибири и охотничьих путешествиях. Также на сайте есть страничка "Форум", где можно обсудить наиболее актуальные и интересные вопросы об охоте правового, технологического и экономического характера.
         <div class="columns c3">
         <div class="column">
         <div class="main-info">
             <div class="round">
-                <div class="material-icons-outlined">language</div>
+                <div class="material-icons-outlined"><img style="width: 100px" src="/static/image/world.png"></div>
             </div>
             <p>Компания работает только с конечными потребителями российской охотничьей продукции по всему миру</p>
         </div>
@@ -64,7 +73,11 @@
     <div class="columns c2">
         <div class="column">
         <div class="image-product">
-            <img src="/static/image/Кабарг стр.JPG">
+            <img class="first" src="/static/image/sobol1.jpg">
+            <img class="second" src="/static/image/Кабарг стр.JPG">
+            <img class="third" src="/static/image/Chaga.jpeg">
+            <img class="fourth" src="/static/image/Желчные камни КРС.jpg">
+            <img class="fifth" src="/static/image/желчьБМ.jpg">
         </div>
         </div>
         <div class="column">
@@ -99,7 +112,11 @@
     <div class="columns c2">
         <div class="column">
         <div class="forum-photo">
-            <img src="static/image/Picture 2 (1).jpeg">
+            <img class="first" src="static/image/product1.jpg">
+            <img class="second" src="static/image/product2.jpg">
+            <img class="third" src="static/image/product3.jpg">
+            <img class="fourth" src="static/image/product4.jpg">
+            <img class="fifth" src="static/image/product5.jpg">
         </div>
         </div>
         <div class="column">
