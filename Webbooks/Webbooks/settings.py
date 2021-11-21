@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'firsttry',
+    'Webbooks.firsttry',
 ]
 
 
@@ -53,7 +53,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'Webbooks.urls'
+ROOT_URLCONF = 'Webbooks.Webbooks.urls'
 
 TEMPLATES = [
     {
