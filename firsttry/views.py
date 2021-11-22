@@ -123,6 +123,11 @@ def topic(request, id):
         topic = Forum_Topic.objects.get(id=id)
         search = Search()
         com = Commeent()
+        list_theme = {"Продукция охоты – предложения, качество, объёмы, цены": "1",
+                      "Охота, охотничьи путешествия, трофеи":"2",
+                      "Способы и орудия охоты": "3",
+                      "Актуальные правовые и организационно-экономические проблемы охотничьего хозяйства": "4",
+                      "Иркутский охотфак – поиск и общение сокурсников, выпускников, педагогов": "5"}
         if request.method == 'POST':
             com = Commeent(request.POST)
             if com.is_valid():
@@ -138,6 +143,7 @@ def topic(request, id):
                 comments[i]=[el,Comment.objects.get(id=el.quetion)]
             else:
                 comments[i] = [el]
-        return render(request, "topic.html", context={"topic": topic, "form_search": search, "form_comment": com, "comments":comments})
+        return render(request, "topic.html", context={"topic": topic, "form_search": search, "form_comment": com, \
+                                                      "comments":comments, "theme": list_theme[topic.theme]})
     except:
         return HttpResponseNotFound()

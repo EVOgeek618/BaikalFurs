@@ -859,6 +859,7 @@ h3{
     padding: 40px 2%;
     display: block;
     border-radius: 3vh;
+    position: relative;
 }
 .ava{
     float: left;
@@ -992,6 +993,11 @@ h3{
 }
 .topic .topic-theme{
     display: table;
+}
+.back{
+    position: absolute;
+    display: block;
+    right: 20px;
 }
 @-moz-document url-prefix() {
   .main-info .round div{
