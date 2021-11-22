@@ -1,3 +1,11 @@
+@-moz-document url-prefix() {
+  .main-info .round div{
+    width: 100%;
+    padding-top: 15px;
+    font-size: 100px;
+}
+}
+
 @font-face {
   font-family: 'Material Icons';
   font-style: normal;
