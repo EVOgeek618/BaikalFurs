@@ -5,7 +5,7 @@
 <section class="forum-page">
 <div class="main-forums-theme-list">
     <div class="make-forum-theme">
-        <a href="/forum/add">
+        <a href="/forum/add/{{ theme }}">
             <span>Добавить новое обсуждение</span>
             <span>add</span>
         </a>
@@ -15,7 +15,7 @@
             <img class="ava" src="/static/image/ava.jpg">
             <a href="/forum/{{ topic.id }}" class="title-forum-theme-a">
                 <div class="title-forum-theme">
-                    <h4>{{ topic.title }}</h4>
+                    <h4>{{ topic.user }}: {{ topic.title }}</h4>
                     <h5>{{ topic.theme }}</h5>
                     <p>{{ topic.text| linebreaks }}</p>
                     <br>

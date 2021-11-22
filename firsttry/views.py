@@ -57,7 +57,7 @@ def forum(request,theme=None):
     topic = Forum_Topic.objects.order_by("-start_data").all()
     if theme in list_theme.keys():
         topic = Forum_Topic.objects.filter(theme=list_theme[theme]).all()
-        return render(request, "forum.html", context={"form_search": search, "topics": topic})
+        return render(request, "forum.html", context={"form_search": search, "topics": topic, "theme":theme})
     elif not theme:
         return render(request, "forum.html", context={"form_search": search, "topics": topic})
     else:
@@ -99,8 +99,9 @@ def products(request):
     search = Search()
     return render(request, "products.html", context={"form_search": search})
 
-def add_forum_theme(request):
+def add_forum_theme(request,stheme=1):
     add = Add_Forum_Theme()
+    add.fields['theme'].initial = stheme
     search = Search()
     if request.method == 'POST':
         add = Add_Forum_Theme(request.POST)
@@ -112,8 +113,9 @@ def add_forum_theme(request):
         if add.is_valid():
             theme = list_theme[add.cleaned_data['theme']]
             title = add.cleaned_data['title']
+            user = add.cleaned_data['name']
             quetion = add.cleaned_data['quetion']
-            new_id = Forum_Topic.objects.create(title=title, theme=theme, start_data=datetime.datetime.now(), text=quetion).id
+            new_id = Forum_Topic.objects.create(title=title, user=user, theme=theme, start_data=datetime.datetime.now(), text=quetion).id
             return redirect(f"/forum/{new_id}")
     return render(request, "add_forum_theme.html", context={"form": add, "form_search": search})
 def topic(request, id):

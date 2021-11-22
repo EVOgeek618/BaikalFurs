@@ -16,69 +16,69 @@ font-style: normal;
 font-weight: normal;
 }
 @keyframes cycle {
-   0%  { left: 0px; opacity:1; z-index:1; width: 85%; height: 85%} /* При запуске слайдера, первое изображение уже видимо */
-   16.67%  { left: 0px; opacity:1; z-index:1; width: 85%; height: 85%} /* Стартовая позиция */
-   20% { left: -43vw; opacity:1; z-index:0; width: 10%; height: 10%} /* С 4% до 16 % (3 секунды) изображение видимо */
-   36.67%  { left: -43vw; opacity:1; z-index:0; width: 10%; height: 10%} /* Стартовая позиция */
-   40% { left: -10vw; opacity:1; z-index:0; width: 10%; height: 10%} /* С 4% до 16 % (3 секунды) изображение видимо */
-   56.67%  { left: -10px; opacity:1; z-index:0; width: 10%; height: 10%} /* Стартовая позиция */
-   60% { left: 10vw; opacity:1; z-index:0; width: 10%; height: 10%} /* С 4% до 16 % (3 секунды) изображение видимо */
-   76.67%  { left: 10px; opacity:1; z-index:0; width: 10%; height: 10%} /* Стартовая позиция */
-   80% { left: 40vw; opacity:1; z-index:0; width: 10%; height: 10%} /* С 4% до 16 % (3 секунды) изображение видимо */
-   96.67%  { left: 40vw; opacity:1; z-index:1; width: 10%; height: 10%} /* Стартовая позиция */
-   100% { left: 0vw; opacity:1; z-index:1; width: 85%; height: 85%} /* С 4% до 16 % (3 секунды) изображение видимо */
+   0%  { left: 0px; border-width: 10px; z-index:1; width: 80%; height: 80%}
+   16.67%  { left: 0px; border-width: 10px;  z-index:1; width: 80%; height: 80%}
+   20% { left: -18vw; border-width: 9px;  z-index:0; width: 70%; height: 70%}
+   36.67%  { left: -18vw; border-width: 9px;  z-index:0; width: 70%; height: 70%}
+   40% { left: 0vw; border-width: 9px;  z-index:0; width: 70%; height: 70%}
+   56.67%  { left: 0px; border-width: 9px; z-index:0; width: 70%; height: 70%}
+   60% { left: 0vw; border-width: 9px; z-index:0; width: 70%; height: 70%}
+   76.67%  { left: 0px; border-width: 9px; z-index:0; width: 70%; height: 70%}
+   80% { left: 18vw;border-width: 9px; z-index:0; width: 70%; height: 70%}
+   96.67%  { left: 18vw; border-width: 9px; z-index:0; width: 70%; height: 70%}
+   100% { left: 0vw; border-width: 10px; z-index:1; width: 80%; height: 80%}
 }
 @keyframes cycletwo {
-   0%  { left: -43vw; opacity:1; z-index:0; width: 10%; height: 10%}
-   16.67%  { left: -43vw; opacity:1; z-index:0; width: 10%; height: 10%}
-   20% { left: -10vw; opacity:1; z-index:0; width: 10%; height: 10%}
-   36.67%  { left: -10vw; opacity:1; z-index:0; width: 10%; height: 10%}
-   40% { left: 10vw; opacity:1; z-index:0; width: 10%; height: 10%}
-   56.67%  { left: 10vw; opacity:1; z-index:0; width: 10%; height: 10%}
-   60% { left: 40vw; opacity:1; z-index:0; width: 10%; height: 10%}
-   76.67%  { left: 40vw; opacity:1; z-index:0; width: 10%; height: 10%}
-   80% { left: 0vw; opacity:1; z-index:1; width: 85%; height: 85%}
-   96.67%  { left: 0vw; opacity:1; z-index:1; width: 85%; height: 85%}
-   100% { left: -43vw; opacity:1; z-index:0; width: 10%; height: 10%}
+   0%  { left: -18vw; border-width: 9px;  z-index:0; width: 70%; height: 70%}
+   16.67%  { left: -18vw; border-width: 9px;  z-index:0; width: 70%; height: 70%}
+   20% { left: 0vw; border-width: 9px;  z-index:-1; width: 70%; height: 70%}
+   36.67%  { left: 0vw; border-width: 9px;  z-index:-1; width: 70%; height: 70%}
+   40% { left: 0vw; border-width: 9px;  z-index:0; width: 70%; height: 70%}
+   56.67%  { left: 0px; border-width: 9px; z-index:0; width: 70%; height: 70%}
+   60% { left: 18vw;border-width: 9px; z-index:0; width: 70%; height: 70%}
+   76.67%  { left: 18vw;border-width: 9px; z-index:0; width: 70%; height: 70%}
+   80% { left: 0vw; border-width: 10px; z-index:1; width: 80%; height: 80%}
+   96.67%  { left: 0vw; border-width: 10px; z-index:1; width: 80%; height: 80%}
+   100% { left: -18vw; border-width: 9px;  z-index:0; width: 70%; height: 70%}
 }
 @keyframes cyclethree {
-   0%  { left: -10vw; opacity:1; z-index:0; width: 10%; height: 10%}
-   16.67%  { left: -10vw; opacity:1; z-index:0; width: 10%; height: 10%}
-   20% { left: 10vw; opacity:1; z-index:0; width: 10%; height: 10%}
-   36.67%  { left: 10vw; opacity:1; z-index:0; width: 10%; height: 10%}
-   40% { left: 40vw; opacity:1; z-index:0; width: 10%; height: 10%}
-   56.67%  { left: 40vw; opacity:1; z-index:0; width: 10%; height: 10%}
-   60% { left: 0vw; opacity:1; z-index:1; width: 85%; height: 85%}
-   76.67%  { left: 0vw; opacity:1; z-index:1; width: 85%; height: 85%}
-   80% { left: -43vw; opacity:1; z-index:0; width: 10%; height: 10%}
-   96.67%  { left: -43vw; opacity:1; z-index:0; width: 10%; height: 10%}
-   100% { left: -10vw; opacity:1; z-index:0; width: 10%; height: 10%}
+   0%  { left: 0vw; border-width: 9px;  z-index:-1; width: 70%; height: 70%}
+   16.67%  { left: 0vw; border-width: 9px;  z-index:-1; width: 70%; height: 70%}
+   20% { left: 0vw; border-width: 9px;  z-index:-1; width: 70%; height: 70%}
+   36.67%  { left: 0vw; border-width: 9px;  z-index:-1; width: 70%; height: 70%}
+   40% { left: 18vw;border-width: 9px; z-index:0; width: 70%; height: 70%}
+   56.67%  { left: 18vw;border-width: 9px; z-index:0; width: 70%; height: 70%}
+   60% { left: 0vw; border-width: 10px; z-index:1; width: 80%; height: 80%}
+   76.67%  { left: 0vw; border-width: 10px; z-index:1; width: 80%; height: 80%}
+   80% { left: -18vw; border-width: 9px;  z-index:0; width: 70%; height: 70%}
+   96.67%  { left: -18vw; border-width: 9px;  z-index:0; width: 70%; height: 70%}
+   100% { left: 0vw; border-width: 9px;  z-index:-1; width: 70%; height: 70%}
 }
 @keyframes cyclefour {
-   0%  { left: 10vw; opacity:1; z-index:0; width: 10%; height: 10%}
-   16.67%  { left: 10vw; opacity:1; z-index:0; width: 10%; height: 10%}
-   20% { left: 40vw; opacity:1; z-index:0; width: 10%; height: 10%}
-   36.67%  { left: 40vw; opacity:1; z-index:0; width: 10%; height: 10%}
-   40% { left: 0vw; opacity:1; z-index:1; width: 85%; height: 85%}
-   56.67%  { left: 0vw; opacity:1; z-index:1; width: 85%; height: 85%}
-   60% { left: -43vw; opacity:1; z-index:0; width: 10%; height: 10%}
-   76.67%  { left: -43vw; opacity:1; z-index:0; width: 10%; height: 10%}
-   80% { left: -10vw; opacity:1; z-index:0; width: 10%; height: 10%}
-   96.67%  { left: -10vw; opacity:1; z-index:0; width: 10%; height: 10%}
-   100% { left: 10vw; opacity:1; z-index:0; width: 10%; height: 10%}
+   0%  { left: 0vw; border-width: 9px;  z-index:-1; width: 70%; height: 70%}
+   16.67%  { left: 0vw; border-width: 9px;  z-index:-1; width: 70%; height: 70%}
+   20% { left: 18vw;border-width: 9px; z-index:0; width: 70%; height: 70%}
+   36.67%  { left: 18vw;border-width: 9px; z-index:0; width: 70%; height: 70%}
+   40% { left: 0vw; border-width: 10px; z-index:1; width: 80%; height: 80%}
+   56.67%  { left: 0vw; border-width: 10px; z-index:1; width: 80%; height: 80%}
+   60% { left: -18vw; border-width: 9px;  z-index:0; width: 70%; height: 70%}
+   76.67%  { left: -18vw; border-width: 9px;  z-index:0; width: 70%; height: 70%}
+   80% { left: 0vw; border-width: 9px;  z-index:-1; width: 70%; height: 70%}
+   96.67%  { left: 0vw; border-width: 9px;  z-index:-1; width: 70%; height: 70%}
+   100% { left: 0vw; border-width: 9px;  z-index:-1; width: 70%; height: 70%}
 }
 @keyframes cyclefive {
-   0%  { left: 40vw; opacity:1; z-index:0; width: 10%; height: 10%}
-   16.67%  { left: 40vw; opacity:1; z-index:0; width: 10%; height: 10%}
-   20% { left: 0vw; opacity:1; z-index:1; width: 85%; height: 85%}
-   36.67%  { left: 0vw; opacity:1; z-index:1; width: 85%; height: 85%}
-   40% { left: -43vw; opacity:1; z-index:0; width: 10%; height: 10%}
-   56.67%  { left: -43vw; opacity:1; z-index:0; width: 10%; height: 10%}
-   60% { left: -10vw; opacity:1; z-index:0; width: 10%; height: 10%}
-   76.67%  { left: -10vw; opacity:1; z-index:0; width: 10%; height: 10%}
-   80% { left: 10vw; opacity:1; z-index:0; width: 10%; height: 10%}
-   96.67%  { left: 10vw; opacity:1; z-index:0; width: 10%; height: 10%}
-   100% { left: 40vw; opacity:1; z-index:0; width: 10%; height: 10%}
+   0%  { left: 18vw;border-width: 9px; z-index:0; width: 70%; height: 70%}
+   16.67%  { left: 18vw;border-width: 9px; z-index:0; width: 70%; height: 70%}
+   20% { left: 0vw; border-width: 10px; z-index:1; width: 80%; height: 80%}
+   36.67%  { left: 0vw; border-width: 10px; z-index:1; width: 80%; height: 80%}
+   40% { left: -18vw; border-width: 9px;  z-index:0; width: 70%; height: 70%}
+   56.67%  { left: -18vw; border-width: 9px;  z-index:0; width: 70%; height: 70%}
+   60% { left: 0vw; border-width: 9px;  z-index:-1; width: 70%; height: 70%}
+   76.67%  { left: 0vw; border-width: 9px;  z-index:-1; width: 70%; height: 70%}
+   80% { left: 0vw; border-width: 9px;  z-index:-1; width: 70%; height: 70%}
+   96.67%  { left: 0vw; border-width: 9px;  z-index:-1; width: 70%; height: 70%}
+   100% { left: 18vw;border-width: 9px; z-index:0; width: 70%; height: 70%}
 }
 body a{
     color:black;
@@ -116,7 +116,7 @@ body {
     margin: 0;
     padding: 0;
     font-family: Rubik-Light;
-    z-index: 5;
+    z-index: 0;
 }
 
 .main_list {
@@ -388,6 +388,8 @@ h1{
 .image-product img{
     width: 85%;
     height: 85%;
+    border-style: solid;
+    border-color: white;
     position: absolute;
     z-index: 0;
     margin: auto;
@@ -450,6 +452,8 @@ h1{
 .forum-photo img{
     width: 80%;
     height: 100%;
+    border-style: solid;
+    border-color: #3d7826;
     position: absolute;
     z-index: 0;
     margin: auto;
@@ -529,7 +533,7 @@ h1{
     padding-right: 50px;
     padding-top: 15px;
     border-radius: 7px;
-    background-color: #3d7826;
+    background-color: #6b9758;
     min-height: 400px;
 }
 .forums-list a{
@@ -827,7 +831,7 @@ h3{
 .forum-theme{
     min-height: 15vh;
     margin: 30px 0;
-    background-color: #7ff37f;
+    background-color: #6b9758;
     padding: 20px 2%;
     display: block;
     border-radius: 30px;
@@ -843,7 +847,7 @@ h3{
     display: inline-block;
 }
 .forum-theme p{
-    color: #5c5c5c;
+    color: #404040;
 }
 .title_add{
     margin: 30px 0 0 20px;
@@ -851,7 +855,7 @@ h3{
 
 .topic{
     margin: 30px 10% 30px 3%;
-    background-color: #7ff37f;
+    background-color: #6b9758;
     padding: 40px 2%;
     display: block;
     border-radius: 3vh;
@@ -935,7 +939,7 @@ h3{
 }
 .text-comment h4 a,
 .text-comment h5 a{
-    color: #6f6f6f;
+    color: #404040;
 }
 .answer{
     font-family: "Material Icons";
@@ -949,7 +953,7 @@ h3{
 }
 .answer-text-comment{
     clear: left;
-    background-color: #7ff37f;
+    background-color: #6b9758;
     margin-inline: 7% 10%;
 }
 #answ a:hover{
@@ -962,26 +966,30 @@ h3{
 }
 #answ{
     width: 70vw;
-    background-color: #4fba29;
+    background-color: #6b9758;
     border-radius: 5px;
     margin-left: 10vw;
     vert-align: middle;
-    padding-block: 3vh;
+    padding-block: 2vh;
+    padding-left: 10px;
     font-size: larger;
     display: none;
 }
 .forum-theme data{
     font-size: small;
-    color: #6f6f6f;
+    color: #404040;
 }
 .text-comment data{
     font-size: x-small;
-    color: #6f6f6f;
+    color: #404040;
 }
 .topic data{
     font-size: small;
-    color: #6f6f6f;
+    color: #404040;
 }
 .forum-theme .title-forum-theme{
+    display: table;
+}
+.topic .topic-theme{
     display: table;
 }

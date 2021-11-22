@@ -5,8 +5,9 @@
         <img class="ava" src="/static/image/ava.jpg">
         <a href="{{ topic.id }}">
             <div class="topic-theme">
-                <h4>{{ topic.title | capfirst }}</h4>
-                <p>{{ topic.text| linebreaks | capfirst }}</p>
+                <h4>{{ topic.user }}: {{ topic.title | capfirst }}</h4>
+                <h5>{{ topic.theme }}</h5>
+                <p>{{ topic.text| linebreaksbr | capfirst }}</p>
                 <br>
                 <data>{{ topic.start_data }}</data>
             </div>
