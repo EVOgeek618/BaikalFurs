@@ -1008,11 +1008,13 @@ h3{
     text-align: center;
     width: 100%;
     font-family: Rubik-Bold;
+    ont-weight: normal;
     transition: all 0.5s ease;
 }
     .make-forum-theme{
     background-color: #6b9758;
     color: black;
+    font-weight: normal;
     padding: 20px 10px;
     border-radius: 5px;
     font-weight: bold;
