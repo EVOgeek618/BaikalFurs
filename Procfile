@@ -1,3 +1,3 @@
-relese: python manage.py collectstatic
-relese: python manage.py migrate
+release: python manage.py makemigration
+release: python manage.py migrate
 web: gunicorn Webbooks.wsgi --log-file -
