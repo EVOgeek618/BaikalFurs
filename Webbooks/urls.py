@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from firsttry import views
+from Webbooks.firsttry import views
 urlpatterns = [
     path('', views.home),
     path('faq/', views.faq),
