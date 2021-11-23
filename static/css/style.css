@@ -843,7 +843,7 @@ h3{
 }
 .forum-theme > img,
 .forum-theme > div{
-    max-height: 15vw;
+    max-height: 10vw;
     display: inline-block;
 }
 .forum-theme p{
@@ -868,7 +868,7 @@ h3{
 }
 .topic > img,
 .topic > div{
-    max-height: 15vh;
+    max-height: 10vw;
     display: inline-block;
 }
 .topic p{
