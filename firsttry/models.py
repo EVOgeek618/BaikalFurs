@@ -9,7 +9,7 @@ class Otchets(models.Model):
 
 class Photo(models.Model):
     name = models.CharField(max_length=100, verbose_name="Название фото/видео", null=True, default="Неизвестное")
-    dir_way = models.FileField(upload_to="static/image/photo/", verbose_name="Файл")
+    dir_way = models.FileField(upload_to="./static/image/photo/", verbose_name="Файл")
     otchet = models.ForeignKey(Otchets, on_delete=models.CASCADE, verbose_name="Название отчёта")
     is_video = models.BooleanField(verbose_name="Видео?")
 
