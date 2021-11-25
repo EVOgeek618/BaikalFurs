@@ -10,7 +10,7 @@
     {% endif %}
     <div class="image-list">
     {% for photo in photos %}
-        <a href="#i{{ forloop.counter }}"><img src="/{{ photo }}"></a>
+        <a href="#i{{ forloop.counter }}"><img src="/media/{{ photo }}"></a>
     {% endfor %}
     </div>
     {% if videos or urlvideos %}
@@ -18,10 +18,10 @@
     {% endif %}
     <div class="video-list">
     {% for video in videos %}
-        <a href="/{{ video }}" target="_blank">
+        <a href="/media/{{ video }}" target="_blank">
             <img src="/static/image/video-play.png">
             <video preload="metadata">
-                <source src="/{{ video }}">
+                <source src="/media/{{ video }}">
             </video>
         </a>
     {% endfor %}
