@@ -152,7 +152,7 @@ input[type="submit"] {
     padding: 0.2vw 0.6vw;
     border: 1px solid yellow;
     border-radius: 3px;
-    content: "Поиск";
+    mso-field-change-value: "Отправить";
     font-size: 1.1vw;
 }
 
