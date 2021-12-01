@@ -191,8 +191,8 @@ def registration(request):
                       [f"{email}"])
             User.objects.create_user(email=email, username=login, password=password, is_staff=False, is_superuser=False,
                                 is_active=False, last_name= aut)
-            return redirect('/')
-    return render(request, "registration.html", context={"form_search": search, "form_r":form_r})
+            return render(request, "registration.html", context={"form_r": None})
+    return render(request, "registration.html", context={"form_r":form_r})
 
 def active(request, pas):
     try:

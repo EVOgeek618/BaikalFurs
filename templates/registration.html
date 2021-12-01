@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% block title%}Регистрация{% endblock title%}
 {% block body %}
+    {% if form_r %}
     <div class="form">
         <form action = "/register/" method="POST">
         {% csrf_token %}
@@ -13,4 +14,8 @@
             </table>
         </form>
     </div>
+    {% else %}
+        <h1></h1>
+        Спасибо. Вам на почту отправлено письмо для подтверждения регистрации.
+    {% endif %}
 {% endblock body %}
