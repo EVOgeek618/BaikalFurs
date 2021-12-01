@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <title>Байкал-Фурс</title>
     <link rel="icon" href="/static/image/logog.png">
-    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/style1.css">
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script>
         $(window).scroll(function() {
@@ -21,10 +21,10 @@
     <div class="logo">
     <a href="/"><img src={% static "image/logog1.png" %}></a>
     </div>
-    <div class="search">
+    <div class="user">
         {% if user.is_authenticated %}
-            <img style="width: 2vw" src="/static/image/ava.jpg">
-            <p>{{ user.username }}</p>
+            <img src="/static/image/ava.jpg">
+            {{ user.username }}
             <a href="{% url 'logout'%}?next={{ request.path }}">Выход</a>
         {% else %}
             <a href="{% url 'login'%}?next={{ request.path }}">Войти</a> | <a href="/register">Регистрация</a>

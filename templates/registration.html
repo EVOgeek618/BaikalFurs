@@ -5,7 +5,7 @@
         <form action = "/register/" method="POST">
         {% csrf_token %}
             <table>
-            {{ form_r.as_p }}
+            {{ form_r.as_table }}
             <tr>
             <th></th>
             <td><input type="submit" value="Регистрация"></td>

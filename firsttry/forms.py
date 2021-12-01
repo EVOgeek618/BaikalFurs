@@ -3,7 +3,7 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
 
 class Search(forms.Form):
-    Поиск = forms.CharField(max_length=40, disabled=True, widget=forms.TextInput(attrs={'placeholder': 'Временно не работает'}))
+    text = forms.CharField(max_length=40, min_length=6)
 
 class Back(forms.Form):
     theme = forms.ChoiceField(choices=((1, "Продажа товара"),

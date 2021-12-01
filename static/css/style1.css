@@ -95,6 +95,26 @@ body a{
     background-color: rgba(61, 120, 38, 1);
     transition: background-color 0.5s ease;
 }
+.user{
+    float: right;
+    margin-top: 1vw;
+    margin-right: 1.2vw;
+    width: 12vw;
+    font-size: 1.2vw;
+
+}
+.user img{
+    margin-right: 1.5vw;
+    float: left;
+    width: 3vw;
+}
+.user a{
+    display: inline-block;
+    margin-top: 0.6vw;
+}
+.user a:hover{
+    color: #7ff37f;
+}
 .head.home{
     background-color: rgba(61, 120, 38, 0.8);
     transition: background-color 0.5s ease;
@@ -124,28 +144,35 @@ body {
     width: fit-content;
     float: right;
     text-align: center;
-    width: 66vw;
+    width: 72vw;
 }
 .main_list span:hover a{
     color:#d0e55a;
 }
-.search .field {
-    float: left;
-    margin: 0px 1vw 10px 0px;
-}
+
 .search {
-    float: right;
+    clear: left;
+    clear: right;
+    display: block;
     margin-right: 2vw;
     margin-top: 1.3vw;
+    margin-bottom: 70px;
+}
+.search p{
+    margin: 0;
+    float: left;
 }
 .search input[type="text"] {
+    display: inline;
     padding: 0.3vw;
     font-size: 1.1vw;
-    width: 10vw;
+    width: 58vw;
     border-radius: 6px;
 }
 
 input[type="submit"] {
+    float: right;
+    display: inline;
     margin-top: 2px;
     color: white;
     background-color: darkgreen;

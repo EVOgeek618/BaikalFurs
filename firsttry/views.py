@@ -46,7 +46,7 @@ def faq(request):
             que = None
     return render(request, "FAQ.html", context={"form_search": search,"form_q":que})
 
-def forum(request,theme=None):
+def forum(request,theme=None,text=None):
     search = Search()
     list_theme = {"1": "Продукция охоты – предложения, качество, объёмы, цены",
                   "2": "Охота, охотничьи путешествия, трофеи",
@@ -54,9 +54,24 @@ def forum(request,theme=None):
                   "4": "Актуальные правовые и организационно-экономические проблемы охотничьего хозяйства",
                   "5": "Иркутский охотфак – поиск и общение сокурсников, выпускников, педагогов"}
     topic = Forum_Topic.objects.order_by("-start_data").all()
+    if request.method == 'POST':
+        search = Search(request.POST)
+        if search.is_valid():
+            search = search.cleaned_data["text"]
+            return redirect(f"/forum/search/{search}")
+    if text:
+        slist = Forum_Topic.objects.order_by("-start_data").all()
+        topic = []
+        for i in slist:
+            if i.title.lower().find(text[:-2].lower()) != -1 \
+                    or i.text.lower().find(text[:-2].lower()) != -1\
+                    or i.theme.lower().find(text[:-2].lower()) != -1:
+                topic.append(i)
+        search['text'].initial = text
+        return render(request, "forum.html", context={"form_search": search, "topics": topic, "themes": list_theme})
     if theme in list_theme.keys():
         topic = Forum_Topic.objects.filter(theme=list_theme[theme]).all()
-        return render(request, "forum.html", context={"form_search": search, "topics": topic, "theme":theme,
+        return render(request, "forum.html", context={"form_search": search,"theme":theme, "topics": topic,
                                                       "themes": list_theme})
     elif not theme:
         return render(request, "forum.html", context={"form_search": search, "topics": topic, "themes": list_theme})

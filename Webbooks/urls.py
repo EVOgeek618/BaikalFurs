@@ -28,6 +28,7 @@ urlpatterns = [
     path('forum/add/', views.add_forum_theme),
     path('forum/theme/<str:theme>', views.forum),
     path('forum/<int:id>/', views.topic),
+    path('forum/search/<str:text>/', views.forum),
     path('photoarchive/', views.photo),
     path('products/', views.products),
     path('otchet/<str:name>/', views.otchet),
