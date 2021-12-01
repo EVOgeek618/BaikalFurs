@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title%}Регистрация{% endblock title%}
+{% block body %}
+    {% if not user.is_authenticated %}
+    <div class="form">
+        <form action = "{% url 'login' %}" method="POST">
+        {% csrf_token %}
+            <table>
+            {{ form.as_p }}
+            <tr>
+            <th></th>
+            <td><input type="submit" value="Войти">
+                <input type="hidden" name="next" value="{{ next }}"></td>
+            </tr>
+            </table>
+        </form>
+    </div>
+    {% else %}
+        <h1></h1>
+        Вы уже авторизированы
+    {% endif %}
+{% endblock body %}

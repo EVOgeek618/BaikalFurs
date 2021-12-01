@@ -4,12 +4,14 @@
 <h1>Форум</h1>
 <section class="forum-page">
 <div class="main-forums-theme-list">
+    {% if user.is_authenticated %}
     <div class="make-forum-theme">
         <a href="/forum/add/{{ theme }}">
             <span>Добавить новое обсуждение</span>
             <span>add</span>
         </a>
     </div>
+    {% endif %}
     {% for topic in topics %}
         <div class="forum-theme">
             <img class="ava" src="/static/image/ava.jpg">
@@ -28,11 +30,13 @@
 <div class="forums-list">
     <h4>Темы форума</h4>
     <ul>
-        <li><a href="/forum/theme/1">Продукция охоты – предложения, качество, объёмы, цены </a></li>
-        <li><a href="/forum/theme/2">Охота, охотничьи путешествия, трофеи</a></li>
-        <li><a href="/forum/theme/3">Способы и орудия охоты</a></li>
-        <li><a href="/forum/theme/4">Актуальные правовые и организационно-экономические проблемы охотничьего хозяйства</a></li>
-        <li><a href="/forum/theme/5">Иркутский охотфак – поиск и общение сокурсников, выпускников, педагогов</a></li>
+        {% for t in themes.items %}
+            {% if t.0 == theme %}
+                <li><a class="active" href="/forum">{{ t.1 }}</a></li>
+            {% else %}
+                <li><a href="/forum/theme/{{ forloop.counter }}">{{ t.1 }}</a></li>
+            {% endif %}
+        {% endfor %}
     </ul>
 </div>
 </section>

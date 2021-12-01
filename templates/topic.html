@@ -42,14 +42,18 @@
     <div id="answ"><span id="ans"></span><a onclick='document.getElementById("answ").style.display = "none";
                                                         document.getElementById("id_parent").value = "0"'>
                                                         Отменить</a></div>
-    <form method="POST" class="write-comment" id="form">
-        {% csrf_token %}
-            <table>
-            {{ form_comment.as_table }}
-            <tr>
-            <th></th>
-            <td><input type="submit"></td>
-            </tr>
-            </table>
-    </form>
+    {% if user.is_authenticated %}
+        <form method="POST" class="write-comment" id="form">
+            {% csrf_token %}
+                <table>
+                {{ form_comment.as_table }}
+                <tr>
+                <th></th>
+                <td><input type="submit"></td>
+                </tr>
+                </table>
+        </form>
+    {% else %}
+        <p>Для написания комментариев необходима авторизация на сайте</p>
+    {% endif %}
 {% endblock body %}
