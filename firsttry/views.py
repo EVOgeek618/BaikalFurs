@@ -186,7 +186,7 @@ def registration(request):
             password = form_r.cleaned_data['password1']
             send_mail("Подтверждение регистрации",
                       f'Для подтверждения регистрации на сайте компании OOO "Байкал-Фурс" перейдите по ссылке: \n'
-                      f'http://127.0.0.1:8000/activateuser/{aut}',
+                      f'https://muscus.herokuapp.com/activateuser/{aut}',
                       "stevenorton2610@gmail.com",
                       [f"{email}"])
             User.objects.create_user(email=email, username=login, password=password, is_staff=False, is_superuser=False,
