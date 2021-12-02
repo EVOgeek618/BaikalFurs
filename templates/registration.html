@@ -2,11 +2,11 @@
 {% block title%}Регистрация{% endblock title%}
 {% block body %}
     {% if form_r %}
-    <div class="form">
+    <div class="form_r">
         <form action = "/register/" method="POST">
         {% csrf_token %}
             <table>
-            {{ form_r.as_p }}
+            {{ form_r.as_table }}
             <tr>
             <th></th>
             <td><input type="submit" value="Регистрация"></td>
