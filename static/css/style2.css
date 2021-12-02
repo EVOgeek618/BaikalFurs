@@ -80,9 +80,13 @@ font-weight: normal;
    96.67%  { left: 0vw; border-width: 9px;  z-index:-1; width: 70%; height: 70%}
    100% { left: 18vw;border-width: 9px; z-index:0; width: 70%; height: 70%}
 }
+
 body a{
     color:black;
     text-decoration: none;
+}
+body a:hover{
+    color: #7ff37f;
 }
 .head {
     width: 100%;
