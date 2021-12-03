@@ -1065,3 +1065,54 @@ li a.active{
 .form_r th{
     vertical-align: top;
 }
+#logout{
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    visibility: hidden;
+    top: 0;
+    left: 0;
+    background-color: rgba(90, 90, 90, 0.59);
+    z-index: 3;
+    transition: all 0.5s ease;
+}
+#logout:target{
+    visibility: visible;
+    transition: all 0.5s ease;
+}
+.win{
+    text-align: center;
+    position: absolute;
+    margin: auto;
+    top: 30%;
+    bottom: 50%;
+    left: 0;
+    right: 0;
+    background-color: white;
+    border-radius: 10px;
+    width: 50%;
+    opacity: 0;
+    border: 3px solid #005300;
+    transition: all 0.5s ease;
+}
+#logout:target .win{
+    top: 40%;
+    bottom: 40%;
+    opacity: 100;
+    transition: all 0.5s ease;
+}
+.win button{
+    background-color: #005300;
+    color: white;
+    font-size: large;
+    border-color: yellow;
+    border-radius: 5px;
+    padding: 10px 40px;
+    cursor: pointer;
+}
+.win button:first-child{
+    margin-right: 10px;
+}
+.win button:last-child{
+    margin-left: 10px;
+}

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Байкал-Фурс {% block title %}Заголовок{% endblock title %}</title>
-    <link rel="stylesheet" href="/static/css/style2.css">
+    <link rel="stylesheet" href="/static/css/style.css">
     <link rel="icon" href="/static/image/logog.png">
 </head>
 <body>
@@ -16,7 +16,7 @@
         {% if user.is_authenticated %}
             <img src="/static/image/ava.jpg">
             {{ user.username }}
-            <a href="{% url 'logout'%}?next={{ request.path }}">Выход</a>
+            <a href="#logout">Выход</a>
         {% else %}
             <a href="{% url 'login'%}?next={{ request.path }}">Войти</a> | <a href="/register">Регистрация</a>
         {% endif %}
@@ -34,6 +34,15 @@
 <h1></h1>
 {% block body %}Содержание станицы{% endblock body %}
 <h1></h1>
+{% if user.is_authenticated %}
+<div id="logout">
+    <div class="win">
+        <h2>Вы уверены, что хотите выйти?</h2>
+        <a href="{% url 'logout'%}?next={{ request.path }}"><button>Да</button></a>
+        <a href="#"><button>Нет</button></a>
+    </div>
+</div>
+{% endif %}
 </body>
 <footer>
     <div class="columns c2">
