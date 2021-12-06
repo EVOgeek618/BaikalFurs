@@ -872,6 +872,7 @@ h3{
 .ava{
     float: left;
     margin-right: 2%;
+    object-fit: cover;
     border-radius: 50%;
 }
 .forum-theme > img,
@@ -901,7 +902,8 @@ h3{
 }
 .topic > img,
 .topic > div{
-    max-height: 8vw;
+    height: 8vw;
+    width: 8vw;
     display: inline-block;
 }
 .topic p{
@@ -941,6 +943,8 @@ h3{
 }
 .com-ava{
     width: 40px;
+    height: 40px;
+    object-fit: cover;
     margin-top: 1vh;
     border-radius: 3px;
     margin-left: 2vw;
