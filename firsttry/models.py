@@ -46,11 +46,11 @@ class Comment(models.Model):
 
 class UserInfo(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, verbose_name="Пользователь")
-    firstname = models.CharField(max_length=40, verbose_name="Имя", blank=True, null=True)
-    lastname = models.CharField(max_length=40, verbose_name="Фамилия", blank=True, null=True)
-    info = models.TextField(verbose_name="О себе", blank=True, null=True)
+    firstname = models.CharField(max_length=40, verbose_name="Имя", blank=True, null=True, default='')
+    lastname = models.CharField(max_length=40, verbose_name="Фамилия", blank=True, null=True, default='')
+    info = models.TextField(verbose_name="О себе", blank=True, null=True, default='')
     sex = models.BooleanField(verbose_name="Мужчина?", null=True, blank=True)
-    ava = models.FileField(upload_to="profiles/", default='profiles/ava.jpg')
+    ava = models.FileField(upload_to="profiles/", default='profiles/ava.jpg', verbose_name="Аватарка")
 
     def __unicode__(self):
         return self.user

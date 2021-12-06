@@ -17,6 +17,9 @@
         <div class="comment" id="{{ comment.0.id }}">
                 <div class="text-comment">
                     <img class="com-ava" src="/media/{{ comment.0.ava }}">
+                    {% if comment.0.user == user %}
+                        <a class="answer" href="/commentremove/{{ comment.0.id }}">delete</a>
+                    {% endif %}
                     <a href="#ans" class="answer" title="Ответить"
                        onclick='document.getElementById("id_parent").value = "{{ comment.0.id }}";
                                document.getElementById("ans").innerText = "Ответить на #{{ comment.0.id }}";

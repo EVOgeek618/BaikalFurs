@@ -34,7 +34,9 @@ urlpatterns = [
     path('otchet/<str:name>/', views.otchet),
     path('admin/', admin.site.urls),
     path('user/<str:username>', views.profile),
+    path('commentremove/<int:id>', views.remove_comment),
     path('register/', views.registration),
+    path('profile-form/<str:user>', views.userredactor),
     path('activateuser/<str:pas>/', views.active)
 ]
 if settings.DEBUG: # new

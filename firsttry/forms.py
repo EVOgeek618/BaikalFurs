@@ -54,3 +54,10 @@ class Registration(UserCreationForm):
         if User.objects.filter(email=cleaned_data.get('email')).exists():
             self._errors['email'] = [u"Эта почта уже зарегистрированна"]
         return cleaned_data
+
+class FormRedactor(forms.Form):
+    ava = forms.FileField(required=False, label="Аватар")
+    firstname = forms.CharField(max_length=40, label="Имя", required=False)
+    lastname = forms.CharField(max_length=40, label="Фамилия", required=False)
+    sex = forms.ChoiceField(choices=((True, 'М'),(False, 'Ж')),widget=forms.RadioSelect, required=False, label="Пол")
+    info = forms.CharField(widget=forms.Textarea, label="О себе", required=False)

@@ -1,7 +1,8 @@
 from django.shortcuts import render, redirect
-from .forms import Search, Back, Add_Forum_Theme, Commeent, Registration, Back_not
-from .models import Photo, Ask, Otchets, URL_Video, Forum_Topic, Comment
+from .forms import Search, Back, Add_Forum_Theme, Commeent, Registration, Back_not, FormRedactor
+from .models import Photo, Ask, Otchets, URL_Video, Forum_Topic, Comment, UserInfo
 from django.contrib.auth.models import User
+from django.core.files.uploadedfile import SimpleUploadedFile
 import datetime
 from django.http import HttpResponse
 from django.core.mail import send_mail, BadHeaderError
@@ -191,9 +192,9 @@ def registration(request):
                       f'https://muscus.herokuapp.com/activateuser/{aut}',
                       "baikalfurs@yandex.ru",
                       [f"{email}"])
-            u = User.objects.create_user(email=email, username=login, password=password, is_staff=False, is_superuser=False,
+            r = User.objects.create_user(email=email, username=login, password=password, is_staff=False, is_superuser=False,
                                 is_active=False, last_name= aut)
-            UserInfo.objects.create(user=u)
+            UserInfo.objects.create(user_id=r.id)
             return render(request, "registration.html", context={"form_r": None})
     return render(request, "registration.html", context={"form_r":form_r})
 
@@ -207,9 +208,31 @@ def active(request, pas):
     except ObjectDoesNotExist:
         return redirect("/")
 def profile(request, username):
-    try:
         head = User.objects.get(username=username)
         sex = {None: "Не выбранно", True: "М", False: "Ж"}[head.userinfo.sex]
         return render(request, "profile.html", context={'head':head, 'sex':sex})
-    except ObjectDoesNotExist:
+
+def userredactor(request, user):
+    form = FormRedactor()
+    head = User.objects.get(username=user)
+    if head.id == request.user.id:
+        if request.method == "POST":
+            form = FormRedactor(request.POST, request.FILES)
+            if form.is_valid():
+                for k, v in form.cleaned_data.items():
+                    if v not in [None, '']:
+                        exec(f'head.userinfo.{k} = form.cleaned_data["{k}"]')
+                head.userinfo.save()
+                return redirect(f'/user/{user}')
+        return render(request, "profile-form.html", context={"form": form})
+    else:
         return redirect('/')
+
+def remove_comment(request, id):
+    com = Comment.objects.get(id=id)
+    for i in Comment.objects.filter(quetion=id):
+        i.quetion = None
+        i.save()
+    s = Forum_Topic.objects.get(title=com.topic).id
+    com.delete()
+    return redirect(f'/forum/{s}')
