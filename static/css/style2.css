@@ -880,6 +880,10 @@ h3{
     max-height: 8vw;
     display: inline-block;
 }
+.forum-theme > img{
+    height: 8vw;
+    width: 8vw;
+}
 .forum-theme p{
     color: #404040;
 }
@@ -902,9 +906,12 @@ h3{
 }
 .topic > img,
 .topic > div{
+    max-height: 8vw;
+    display: inline-block;
+}
+.topic > img{
     height: 8vw;
     width: 8vw;
-    display: inline-block;
 }
 .topic p{
     padding: 20px 0 0 2vw;
