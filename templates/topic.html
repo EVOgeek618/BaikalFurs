@@ -3,7 +3,7 @@
 {% block body %}
     <div class="topic">
         <a class="back" href="/forum/theme/{{ theme }}">Вернуться назад</a>
-        <img class="ava" src="/media/{{ topic.ava }}">
+        <img class="ava" src="/media/{{ topic.user.userinfo.ava }}">
         <div class="topic-theme">
             <h4>{{ topic.user }}: {{ topic.title | capfirst }}</h4>
             <h5>{{ topic.theme }}</h5>
@@ -16,7 +16,7 @@
     {% for comment in comments %}
         <div class="comment" id="{{ comment.0.id }}">
                 <div class="text-comment">
-                    <img class="com-ava" src="/media/{{ comment.0.ava }}">
+                    <img class="com-ava" src="/media/{{ comment.0.user.userinfo.ava }}">
                     {% if comment.0.user == user %}
                         <a class="answer" href="/commentremove/{{ comment.0.id }}">delete</a>
                     {% endif %}
@@ -30,7 +30,7 @@
                 {% if comment.0.quetion %}
                 <div class="answer-text-comment">
                     <div class="text-comment">
-                        <img class="com-ava" src="/media/{{ comment.1.ava }}">
+                        <img class="com-ava" src="/media/{{ comment.1.user.userinfo.ava }}">
                         <h5>{{ comment.1.user }} <a href="#{{ comment.1.id }}">
                             #{{ comment.1.id }}</a> <data>{{ comment.1.data }}</data></h5>
                     </div>

@@ -21,7 +21,7 @@
     {% endif %}
     {% for topic in topics %}
         <div class="forum-theme">
-            <img class="ava" src="/media/{{ topic.ava }}">
+            <img class="ava" src="/media/{{ topic.user.userinfo.ava }}">
             <a href="/forum/{{ topic.id }}" class="title-forum-theme-a">
                 <div class="title-forum-theme">
                     <h4>{{ topic.user }}: {{ topic.title }}</h4>
