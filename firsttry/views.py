@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .forms import Search, Back, Add_Forum_Theme, Commeent, Registration, SignIn, Back_not
+from .forms import Search, Back, Add_Forum_Theme, Commeent, Registration, Back_not
 from .models import Photo, Ask, Otchets, URL_Video, Forum_Topic, Comment
 from django.contrib.auth.models import User
 import datetime
@@ -130,9 +130,11 @@ def add_forum_theme(request,stheme=1):
         if add.is_valid():
             theme = list_theme[add.cleaned_data['theme']]
             title = add.cleaned_data['title']
-            user = add.cleaned_data['name']
+            user = request.user
+            ava = request.user.userinfo.ava
             quetion = add.cleaned_data['quetion']
-            new_id = Forum_Topic.objects.create(title=title, user=user, theme=theme, start_data=datetime.datetime.now(), text=quetion).id
+            new_id = Forum_Topic.objects.create(title=title, user=user, theme=theme,
+                                                start_data=datetime.datetime.now(), text=quetion, ava=ava).id
             return redirect(f"/forum/{new_id}")
     return render(request, "add_forum_theme.html", context={"form": add, "form_search": search})
 def topic(request, id):
@@ -150,9 +152,10 @@ def topic(request, id):
             if com.is_valid():
                 text = com.cleaned_data['text']
                 parent = com.cleaned_data['parent']
-                name = request.user.username
+                name = request.user
+                ava = request.user.userinfo.ava
                 new_id = Comment.objects.create(topic=topic, data=datetime.datetime.now(), text=text,
-                                                quetion=parent if parent>0 else None, user=name).id
+                                                quetion=parent if parent>0 else None, user=name, ava=ava).id
                 return redirect(f"/forum/{id}#{new_id}")
         comments = list(Comment.objects.filter(topic=topic))
         for i,el in enumerate(comments):
@@ -174,7 +177,6 @@ def topic(request, id):
 def registration(request):
     if request.user.is_authenticated:
         return redirect('/')
-    search = Search()
     form_r = Registration()
     if request.method == "POST":
         form_r = Registration(request.POST)
@@ -187,10 +189,11 @@ def registration(request):
             send_mail("Подтверждение регистрации",
                       f'Для подтверждения регистрации на сайте компании OOO "Байкал-Фурс" перейдите по ссылке: \n'
                       f'https://muscus.herokuapp.com/activateuser/{aut}',
-                      "stevenorton2610@gmail.com",
+                      "baikalfurs@yandex.ru",
                       [f"{email}"])
-            User.objects.create_user(email=email, username=login, password=password, is_staff=False, is_superuser=False,
+            u = User.objects.create_user(email=email, username=login, password=password, is_staff=False, is_superuser=False,
                                 is_active=False, last_name= aut)
+            UserInfo.objects.create(user=u)
             return render(request, "registration.html", context={"form_r": None})
     return render(request, "registration.html", context={"form_r":form_r})
 
@@ -203,3 +206,10 @@ def active(request, pas):
         return HttpResponse("Регистрация успешно завершена <a href='/'>На главную</a>")
     except ObjectDoesNotExist:
         return redirect("/")
+def profile(request, username):
+    try:
+        head = User.objects.get(username=username)
+        sex = {None: "Не выбранно", True: "М", False: "Ж"}[head.userinfo.sex]
+        return render(request, "profile.html", context={'head':head, 'sex':sex})
+    except ObjectDoesNotExist:
+        return redirect('/')

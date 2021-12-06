@@ -143,8 +143,14 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 LOGIN_REDIRECT_URL = '/'
 
-EMAIL_USE_TLS = True
+'''EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'stevenorton2610@gmail.com'
 EMAIL_HOST_PASSWORD = 'hqmlnkaavafdcrzk'
-EMAIL_PORT = 587
+EMAIL_PORT = 587'''
+EMAIL_HOST = 'smtp.yandex.ru'
+EMAIL_PORT = 465
+EMAIL_HOST_USER = "baikalfurs@yandex.ru"
+EMAIL_HOST_PASSWORD = "FoJh033%"
+EMAIL_USE_TLS = False
+EMAIL_USE_SSL = True

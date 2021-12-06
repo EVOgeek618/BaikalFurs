@@ -109,10 +109,12 @@ body a:hover{
 }
 .user img{
     margin-right: 1.5vw;
+    object-fit: cover;
     float: left;
     width: 3vw;
+    height: 3vw;
 }
-.user a{
+.user a:last-child{
     display: inline-block;
     margin-top: 0.6vw;
 }
@@ -1116,3 +1118,31 @@ li a.active{
 .win button:last-child{
     margin-left: 10px;
 }
+.errorlist li{
+    list-style-type: none;
+    color: #ff0000;
+}
+.profile-ava button{
+    display: block;
+    background-color: #005300;
+    color: white;
+    font-size: medium;
+    border-color: yellow;
+    border-radius: 5px;
+    padding: 5px 20px;
+    cursor: pointer;
+}
+.profile-ava img{
+    object-fit: cover;
+    width: 20vw;
+    height: 20vw;
+}
+.profile-ava,
+.profile-info{
+    display: inline-block;
+}
+.profile-ava{
+    float: left;
+    margin-right: 30px;
+}
+

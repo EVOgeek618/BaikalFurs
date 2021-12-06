@@ -33,6 +33,7 @@ urlpatterns = [
     path('products/', views.products),
     path('otchet/<str:name>/', views.otchet),
     path('admin/', admin.site.urls),
+    path('user/<str:username>', views.profile),
     path('register/', views.registration),
     path('activateuser/<str:pas>/', views.active)
 ]

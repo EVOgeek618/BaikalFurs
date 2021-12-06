@@ -3,22 +3,20 @@
 {% block body %}
     <div class="topic">
         <a class="back" href="/forum/theme/{{ theme }}">Вернуться назад</a>
-        <img class="ava" src="/static/image/ava.jpg">
-        <a href="{{ topic.id }}">
-            <div class="topic-theme">
-                <h4>{{ topic.user }}: {{ topic.title | capfirst }}</h4>
-                <h5>{{ topic.theme }}</h5>
-                <p>{{ topic.text| linebreaksbr | capfirst }}</p>
-                <br>
-                <data>{{ topic.start_data }}</data>
-            </div>
-        </a>
+        <img class="ava" src="/media/{{ topic.ava }}">
+        <div class="topic-theme">
+            <h4>{{ topic.user }}: {{ topic.title | capfirst }}</h4>
+            <h5>{{ topic.theme }}</h5>
+            <p>{{ topic.text| linebreaksbr | capfirst }}</p>
+            <br>
+            <data>{{ topic.start_data }}</data>
+        </div>
     </div>
 
     {% for comment in comments %}
         <div class="comment" id="{{ comment.0.id }}">
                 <div class="text-comment">
-                    <img class="com-ava" src="/static/image/ava.jpg">
+                    <img class="com-ava" src="/media/{{ comment.0.ava }}">
                     <a href="#ans" class="answer" title="Ответить"
                        onclick='document.getElementById("id_parent").value = "{{ comment.0.id }}";
                                document.getElementById("ans").innerText = "Ответить на #{{ comment.0.id }}";
@@ -29,7 +27,7 @@
                 {% if comment.0.quetion %}
                 <div class="answer-text-comment">
                     <div class="text-comment">
-                        <img class="com-ava" src="/static/image/ava.jpg">
+                        <img class="com-ava" src="/media/{{ comment.1.ava }}">
                         <h5>{{ comment.1.user }} <a href="#{{ comment.1.id }}">
                             #{{ comment.1.id }}</a> <data>{{ comment.1.data }}</data></h5>
                     </div>

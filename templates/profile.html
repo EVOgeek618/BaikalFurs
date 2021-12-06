@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block title%}Профиль {{ head.username }}{% endblock title%}
+{% block body %}
+    <div class="profile-info">
+        <h2>{{ head.username }}</h2>
+        <p>{{ head.userinfo.firstname }} {{ head.userinfo.lastname }}/ {{ sex }}</p>
+        <h4>О себе</h4>
+        <p>{{ head.userinfo.info }}</p>
+    </div>
+    <div class="profile-ava">
+    <img src='/media/{{ head.userinfo.ava }}'>
+    {% if head.id == user.id %}
+        <a href="/profile-form/{{ head.username }}" class=redactor><button>Редактировать</button></a>
+    {% endif %}
+    </div>
+{% endblock body %}

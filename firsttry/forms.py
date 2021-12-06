@@ -49,7 +49,8 @@ class Registration(UserCreationForm):
             user.save()
         return user
 
-class SignIn(AuthenticationForm):
-    class Meta:
-        model = User
-        fields = ("username", "password")
+    def clean(self):
+        cleaned_data = super().clean()
+        if User.objects.filter(email=cleaned_data.get('email')).exists():
+            self._errors['email'] = [u"Эта почта уже зарегистрированна"]
+        return cleaned_data

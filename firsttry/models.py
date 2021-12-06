@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 class Otchets(models.Model):
     name = models.CharField(max_length=100, verbose_name="Название отчёта")
@@ -29,14 +30,31 @@ class Forum_Topic(models.Model):
     title = models.CharField(max_length=100, verbose_name="Тема обсуждения")
     theme = models.CharField(max_length=100, verbose_name="Принадлежность к теме форума")
     start_data = models.DateTimeField(verbose_name="Дата создания обсуждения")
-    user = models.CharField(max_length=30, verbose_name="Автор топика", default="Анонимный охотник")
+    user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name="Автор топика")
     text = models.TextField(verbose_name="Разъяснение обсуждения")
+    ava = models.FileField(upload_to="profiles/", default='profiles/ava.jpg')
     def __str__(self):
         return self.title
 
 class Comment(models.Model):
     topic = models.ForeignKey(Forum_Topic, on_delete=models.CASCADE, verbose_name="Принадлежность к обсуждению")
     data = models.DateTimeField(verbose_name="Дата создания обсуждения")
-    user = models.CharField(max_length=30, verbose_name="Автор комментария", default="Анонимный охотник")
+    user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name="Автор комментария")
     text = models.TextField(verbose_name="Текст комментария")
     quetion = models.IntegerField(verbose_name="Номер комментария-вопроса", blank=True, null=True)
+    ava = models.FileField(upload_to="profiles/", default='profiles/ava.jpg')
+
+class UserInfo(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE, verbose_name="Пользователь")
+    firstname = models.CharField(max_length=40, verbose_name="Имя", blank=True, null=True)
+    lastname = models.CharField(max_length=40, verbose_name="Фамилия", blank=True, null=True)
+    info = models.TextField(verbose_name="О себе", blank=True, null=True)
+    sex = models.BooleanField(verbose_name="Мужчина?", null=True, blank=True)
+    ava = models.FileField(upload_to="profiles/", default='profiles/ava.jpg')
+
+    def __unicode__(self):
+        return self.user
+
+    class Meta:
+        verbose_name = 'Профиль'
+        verbose_name_plural = 'Профили'
